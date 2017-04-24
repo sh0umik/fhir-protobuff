@@ -1,20 +1,22 @@
 
+## Master is Currently at STU3
+
 ## Primary FHIR Resource to implement
 
 | Resource | Model | Status |
 |:---:|:---:|:---:|
-|Patient| Done | 80%
+|Patient| Init | 80% |
 |FamilyMemberHistory|
-|Practitioner| Done | 80%
-|AllergyIntolerance| Done | 80%
-|Encounter| Done | 80%
-|Condition| Done | 80%
+|Practitioner| Init | 80% |
+|AllergyIntolerance| Init | 80% |
+|Encounter| Init | 80% |
+|Condition| Init | 80% |
 |Procedure|
 |Medication|
-|MedicationRequest|
-|Observation| Done | 80%
-|DiagnosticReport| Done | 80%
+|MedicationRequest| 80% |
+|Observation| Init | 80% |
+|DiagnosticReport| Init | 80% |
 |Immunization|
-|CarePlan|
+|CarePlan| Init | 80% |
 |Goal|
-|Organization|
+|Organization| Init | 90% |

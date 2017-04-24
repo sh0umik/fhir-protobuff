@@ -226,3 +226,10 @@ message BasedOn {
 message Note {
     string text = 1;
 }
+
+// encounter containd
+message Contained {
+    string resourceType = 1;
+    Code code = 2;
+    string id = 3;
+}

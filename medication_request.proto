@@ -85,12 +85,6 @@ message MedicationReference {
     string reference = 1;
 }
 
-message Contained {
-    string resourceType = 1;
-    Code code = 2;
-    string id = 3;
-}
-
 message Substitution {
     Reason reason = 1;
     bool allowed = 2;
