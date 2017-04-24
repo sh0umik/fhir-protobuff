@@ -1,0 +1,134 @@
+syntax = "proto3";
+
+package buffer;
+
+import "common.proto";
+
+message MedicationRequest {
+    string status = 1;
+    repeated Definition definition = 2;
+    string authoredOn = 3;
+    GroupIdentifier groupIdentifier = 4;
+    string resourceType = 5;
+    Text text = 6;
+    DispenseRequest dispenseRequest = 7;
+    repeated BasedOn basedOn = 8;
+    Substitution substitution = 9;
+    repeated Note note = 10;
+    repeated Contained contained = 11;
+    MedicationReference medicationReference = 12;
+    string intent = 13;
+    Context context = 14;
+    MRequester requester = 15;
+    repeated DosageInstruction dosageInstruction = 16;
+    repeated Identifier identifier = 17;
+    string id = 18;
+    Subject subject = 19;
+}
+
+message DosageInstruction {
+    int64 sequence = 1;
+    string text = 2;
+    Route route = 3;
+    DoseQuantity doseQuantity = 4;
+    Timing timing = 5;
+    Method method = 6;
+}
+
+message Method {
+    repeated Coding coding = 1;
+}
+
+message Timing {
+    Repeat repeat = 1;
+}
+
+message Repeat {
+    int64 frequency = 1;
+    BoundsPeriod boundsPeriod = 2;
+    int64 period = 3;
+    string periodUnit = 4;
+}
+
+message BoundsPeriod {
+    string start = 1;
+    string end = 2;
+}
+
+message DoseQuantity {
+    string code = 1;
+    string unit = 2;
+    int64 value = 3;
+    string system = 4;
+}
+
+message Route {
+    repeated Coding coding = 1;
+}
+
+
+message MRequester {
+    OnBehalfOf onBehalfOf = 1;
+    Agent agent = 2;
+}
+
+message Agent {
+    string display = 1;
+    string reference = 2;
+}
+
+message OnBehalfOf {
+    string reference = 1;
+}
+
+message MedicationReference {
+    string reference = 1;
+}
+
+message Contained {
+    string resourceType = 1;
+    Code code = 2;
+    string id = 3;
+}
+
+message Substitution {
+    Reason reason = 1;
+    bool allowed = 2;
+}
+
+message DispenseRequest {
+    ValidityPeriod validityPeriod = 1;
+    Performer performer = 2;
+    ExpectedSupplyDuration expectedSupplyDuration = 3;
+    int64 numberOfRepeatsAllowed = 4;
+    Quantity quantity = 5;
+}
+
+message Quantity {
+    string code = 1;
+    string unit = 2;
+    int64 value = 3;
+    string system = 4;
+}
+
+message ExpectedSupplyDuration {
+    string code = 1;
+    string unit = 2;
+    int64 value = 3;
+    string system = 4;
+}
+
+message ValidityPeriod {
+    string start = 1;
+    string end = 2;
+}
+
+message GroupIdentifier {
+    string use = 1;
+    string system = 2;
+    string value = 3;
+}
+
+message Definition {
+    string reference = 1;
+}

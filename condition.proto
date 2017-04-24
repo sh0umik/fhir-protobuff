@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package buffer;
+
+import "common.proto";
+
+message ConditionData {
+  repeated Category category = 1;
+  string assertedDate = 2;
+  Code code = 3;
+  repeated Evidence evidence = 4;
+  Severity severity = 5;
+  string resourceType = 6;
+  Text text = 7;
+  string onsetDateTime = 8;
+  string id = 9;
+  Asserter asserter = 10;
+  repeated BodySite bodySite = 11;
+  Context context = 12;
+  string clinicalStatus = 13;
+  string verificationStatus = 14;
+  Stage stage = 15;
+  Subject subject = 16;
+}
+
+
+

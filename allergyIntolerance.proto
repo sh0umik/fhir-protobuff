@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package buffer;
+
+import "common.proto";
+
+message Allergy {
+    string status = 1;
+    string category = 2;
+    Code code = 3;
+    Patient patient = 4;
+    string criticality = 5;
+    Reporter reporter = 6;
+    string resourceType = 7;
+    Text text = 8;
+    repeated Reaction reaction = 9;
+    string lastOccurrence = 10;
+    string onset = 11;
+    repeated Note note = 12;
+    string attestedDate = 13;
+    Recorder recorder = 14;
+    repeated Identifier identifier = 15;
+    string type = 16;
+    string id = 17;
+    Meta meta = 18;
+}
+
+message Recorder {
+    string reference = 1;
+}
+
+message Reaction {
+    Substance substance = 1;
+    string severity = 2;
+    string certainty = 3;
+    ExposureRoute exposureRoute = 4;
+    string onset = 5;
+    repeated Manifestation manifestation = 6;
+    string description = 7;
+}
+
+message Manifestation {
+    repeated Coding coding = 1;
+}
+
+message ExposureRoute {
+    repeated Coding coding = 1;
+}
+
+message Substance {
+    repeated Coding coding = 1;
+}
+
+message Reporter {
+    string reference = 1;
+}

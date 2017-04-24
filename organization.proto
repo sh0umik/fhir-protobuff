@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package buffer;
+
+import "common.proto";
+
+message OrganizationData {
+  repeated Endpoint endpoint = 1;
+  string name = 2;
+  string resourceType = 3;
+  Text text = 4;
+  repeated Telecom telecom = 5;
+  repeated Address address = 6;
+  bool active = 7;
+  repeated Identifier identifier = 8;
+  repeated Type type = 9;
+  string id = 10;
+  Meta meta = 11;
+}
+
+message Endpoint {
+    string reference = 1;
+}
+

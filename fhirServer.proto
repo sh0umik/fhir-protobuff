@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package buffer;
+
+import "bundle.proto";
+
+service FHIR {
+    rpc GetResource(ID) returns (OneOfResource) {}
+    rpc CreateResource(FHIRUpdateResource) returns (OneOfResource) {}
+    rpc UpdateResource(FHIRUpdateResource) returns (OneOfResource) {}
+    rpc DeleteResource(ID) returns (OneOfResource) {}
+    rpc SearchResource(QueryString) returns (Bundle) {}
+
+    rpc BatchInsertResource(Bundle) returns (Bundle) {}
+}
+
+message ID {
+    string id = 1;
+    string type = 2;
+}
+
+message QueryString {
+    string query = 1;
+}
+
+message FHIRUpdateResource {
+    ID sytemIdentifier = 2;
+    OneOfResource resource = 3;
+}
+

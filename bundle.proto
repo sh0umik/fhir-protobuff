@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package buffer;
+
+import "patient.proto";
+import "practitioner.proto";
+
+import "common.proto";
+
+message Bundle {
+    string resourceType = 1;
+    repeated Link link = 2;
+    int64 total = 3;
+    string type = 4;
+    repeated Entry entry = 5;
+}
+
+message Entry {
+    string fullUrl = 1;
+    string resource = 2;
+}
+
+message OneOfResource {
+    oneof resource {
+        PatientData patient = 1;
+        PractitionerData provider = 2;
+    }
+}

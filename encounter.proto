@@ -1,0 +1,128 @@
+syntax = "proto3";
+
+package buffer;
+
+import "common.proto";
+
+message Encounter {
+    string status = 1;
+    repeated Account account = 2;
+    repeated StatusHistory statusHistory = 3;
+    repeated Participant participant = 4;
+    Hospitalization hospitalization = 5;
+    string resourceType = 6;
+    Text text = 7;
+    repeated IncomingReferral incomingReferral = 8;
+    Period period = 9;
+    Class class = 10;
+    Priority priority = 11;
+    repeated Reason reason = 12;
+    repeated Diagnosis diagnosis = 13;
+    ServiceProvider serviceProvider = 14;
+    Appointment appointment = 15;
+    repeated EpisodeOfCare episodeOfCare = 16;
+    repeated Identifier identifier = 17;
+    repeated Type type = 18;
+    string id = 19;
+    PartOf partOf = 20;
+    Subject subject = 21;
+}
+
+message PartOf {
+    string reference = 1;
+}
+
+message EpisodeOfCare {
+    string reference = 1;
+}
+
+message Appointment {
+    string reference = 1;
+}
+
+message ServiceProvider {
+    string reference = 1;
+}
+
+message Diagnosis {
+    Role role = 1;
+    Condition condition = 2;
+    int64 rank = 3;
+}
+
+message Condition {
+    string reference = 1;
+}
+
+message Priority {
+    repeated Coding coding = 1;
+}
+
+
+message Class {
+    string code = 1;
+    string system = 2;
+    string display = 3;
+}
+
+message IncomingReferral {
+    string reference = 1;
+}
+
+message Hospitalization {
+    Origin origin = 1;
+    AdmitSource admitSource = 2;
+    repeated SpecialCourtesy specialCourtesy = 3;
+    repeated SpecialArrangement specialArrangement = 4;
+    repeated DietPreference dietPreference = 5;
+    ReAdmission reAdmission = 6;
+    Destination destination = 7;
+}
+
+message Destination {
+    string reference = 1;
+}
+
+message ReAdmission {
+    repeated Coding coding = 1;
+}
+
+message DietPreference {
+    repeated Coding coding = 1;
+}
+
+message SpecialArrangement {
+    repeated Coding coding = 1;
+}
+
+message SpecialCourtesy {
+    repeated Coding coding = 1;
+}
+
+message AdmitSource {
+    repeated Coding coding = 1;
+}
+
+
+message Origin {
+    string reference = 1;
+}
+
+message Participant {
+    Individual individual = 1;
+    repeated Type type = 2;
+}
+
+
+message Individual {
+    string reference = 1;
+}
+
+message StatusHistory {
+    string status = 1;
+    Period period = 2;
+}
+
+message Account {
+    string reference = 1;
+}

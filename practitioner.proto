@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package buffer;
+
+import "common.proto";
+
+message PractitionerData {
+  string gender = 1;
+  repeated Photo photo = 2;
+  repeated Name name = 3;
+  string resourceType = 4;
+  Text text = 5;
+  repeated Communication communication = 6;
+  string birthDate = 7;
+  repeated Telecom telecom = 8;
+  repeated Address address = 9;
+  repeated Identifier identifier = 10;
+  string id = 11;
+  Meta meta = 12;
+}
+
+message Photo {
+    string contentType = 1;
+    string data = 2;
+}
+

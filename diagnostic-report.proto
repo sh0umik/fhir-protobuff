@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package buffer;
+
+import "common.proto";
+
+message Diagnosticreport {
+  string assertedDate = 1;
+  Code code = 2;
+  repeated Evidence evidence = 3;
+  Text text = 4;
+  string onsetDateTime = 5;
+  string clinicalStatus = 6;
+  repeated DiagnosticPerformer performer = 7;
+  repeated BodySite bodySite = 8;
+  string id = 9;
+  Subject subject = 10;
+  repeated Category category = 11;
+  Severity severity = 12;
+  repeated BasedOn basedOn = 13;
+  string issued = 14;
+  string effectiveDateTime = 15;
+  string status = 16;
+  repeated PresentedForm presentedForm = 17;
+  Asserter asserter = 18;
+  Stage stage = 19;
+  string resourceType = 20;
+  Context context = 21;
+  string verificationStatus = 22;
+  repeated Result result = 23;
+}
+
+message Result {
+    string reference = 1;
+}
+
+message PresentedForm {
+    string hash = 1;
+    string language = 2;
+    string title = 3;
+    string creation = 4;
+    string contentType = 5;
+    string data = 6;
+}
+
+message DiagnosticPerformer {
+    Actor actor = 1;
+}
+
+message Actor {
+    string reference = 1;
+}
+
+
