@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package buffer;
+
+import "common.proto";
+
+message Procedure {
+    string status = 1;
+    PerformedPeriod performedPeriod = 2;
+    Code code = 3;
+    string resourceType = 4;
+    Text text = 5;
+    repeated FollowUp followUp = 6;
+    repeated PPerformer performer = 7;
+    repeated BodySite bodySite = 8;
+    Context context = 9;
+    repeated Report report = 10;
+    repeated ReasonCode reasonCode = 11;
+    Outcome outcome = 12;
+    string id = 13;
+    Subject subject = 14;
+}
+
+message Outcome {
+    string text = 1;
+}
+
+message ReasonCode {
+    string text = 1;
+}
+
+message Report {
+    string display = 1;
+    string reference = 2;
+}
+
+message PPerformer {
+    Role role = 1;
+    Actor actor = 2;
+}
+
+message FollowUp {
+    string text = 1;
+}
+
+message PerformedPeriod {
+    string start = 1;
+    string end = 2;
+}

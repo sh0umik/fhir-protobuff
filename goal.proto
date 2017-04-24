@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package buffer;
+
+import "common.proto";
+
+message Goal {
+    string status = 1;
+    repeated Category category = 2;
+    repeated OutcomeReference outcomeReference = 3;
+    repeated Addresses addresses = 4;
+    Description description = 5;
+    string startDate = 6;
+    string resourceType = 7;
+    Text text = 8;
+    ExpressedBy expressedBy = 9;
+    string statusReason = 10;
+    Priority priority = 11;
+    Target target = 12;
+    string statusDate = 13;
+    repeated Identifier identifier = 14;
+    string id = 15;
+    Subject subject = 16;
+}
+
+message Target {
+    DetailRange detailRange = 1;
+    string dueDate = 2;
+    Measure measure = 3;
+}
+
+message Measure {
+    repeated Coding coding = 1;
+}
+
+message DetailRange {
+    High high = 1;
+    Low low = 2;
+}
+
+message Low {
+    string code = 1;
+    int64 value = 2;
+    string unit = 3;
+    string system = 4;
+}
+
+message High {
+    string code = 1;
+    int64 value = 2;
+    string unit = 3;
+    string system = 4;
+}
+
+message ExpressedBy {
+    string display = 1;
+    string reference = 2;
+}
+
+message Description {
+    string text = 1;
+}
+
+message OutcomeReference {
+    string display = 1;
+    string reference = 2;
+}

@@ -84,8 +84,9 @@ message Period {
 }
 
 message Role {
-    repeated Coding coding = 1;
-    repeated string fhir_comments = 2;
+    string text = 1;
+    repeated Coding coding = 2;
+    repeated string fhir_comments = 3;
 }
 
 message Location {
@@ -232,4 +233,26 @@ message Contained {
     string resourceType = 1;
     Code code = 2;
     string id = 3;
+}
+
+// diagnostic report and procedure
+
+message Actor {
+    string display = 1;
+    string reference = 2;
+}
+
+// encounter and goal
+
+
+message Priority {
+    string text = 1;
+    repeated Coding coding = 2;
+}
+
+// careplan and gola
+
+message Addresses {
+    string display = 1;
+    string reference = 2;
 }

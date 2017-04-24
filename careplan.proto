@@ -9,7 +9,7 @@ message Careplan {
     repeated Addresses addresses = 2;
     string resourceType = 3;
     Text text = 4;
-    repeated Goal goal = 5;
+    repeated CGoal goal = 5;
     Period period = 6;
     repeated CContained contained = 7;
     string intent = 8;
@@ -65,11 +65,6 @@ message Member {
     string reference = 2;
 }
 
-message Goal {
+message CGoal {
     string reference = 1;
-}
-
-message Addresses {
-    string display = 1;
-    string reference = 2;
 }

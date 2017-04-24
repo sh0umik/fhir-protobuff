@@ -47,8 +47,4 @@ message DiagnosticPerformer {
     Actor actor = 1;
 }
 
-message Actor {
-    string reference = 1;
-}
-
 

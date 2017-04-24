@@ -54,11 +54,6 @@ message Condition {
     string reference = 1;
 }
 
-message Priority {
-    repeated Coding coding = 1;
-}
-
-
 message Class {
     string code = 1;
     string system = 2;
