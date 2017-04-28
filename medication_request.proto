@@ -24,6 +24,7 @@ message MedicationRequest {
     repeated Identifier identifier = 17;
     string id = 18;
     Subject subject = 19;
+    Meta meta = 20;
 }
 
 message DosageInstruction {

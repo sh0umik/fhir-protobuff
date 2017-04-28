@@ -10,19 +10,16 @@ message Observation {
     Code code = 3;
     string resourceType = 4;
     repeated Component component = 5;
-    OMeta meta = 6;
+    Meta meta = 6;
     string effectiveDateTime = 7;
     string id = 8;
     OEncounter encounter = 9;
     Subject subject = 10;
+
 }
 
 message OEncounter {
     string reference = 1;
-}
-
-message OMeta {
-    repeated string profile = 1;
 }
 
 message Component {

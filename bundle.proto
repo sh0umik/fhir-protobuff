@@ -4,6 +4,8 @@ package buffer;
 
 import "patient.proto";
 import "practitioner.proto";
+import "observation.proto";
+import "medication_request.proto";
 
 import "common.proto";
 
@@ -24,5 +26,7 @@ message OneOfResource {
     oneof resource {
         PatientData patient = 1;
         PractitionerData provider = 2;
+        Observation observation = 3;
+        MedicationRequest medication_request = 4;
     }
 }
