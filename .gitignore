@@ -1,2 +1,2 @@
 # Created by .ignore support plugin (hsz.mobi)
-fhirServer.pb.go
+*.pb.go
