@@ -15,6 +15,7 @@ It is generated from these files:
 	encounter.proto
 	fhirServer.proto
 	goal.proto
+	immunization.proto
 	medication_request.proto
 	observation.proto
 	organization.proto
@@ -126,6 +127,9 @@ It has these top-level messages:
 	ExpressedBy
 	Description
 	OutcomeReference
+	Immunization
+	ImmuEncounter
+	VaccineCode
 	MedicationRequest
 	DosageInstruction
 	Method

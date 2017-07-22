@@ -30,7 +30,7 @@ type OrganizationData struct {
 func (m *OrganizationData) Reset()                    { *m = OrganizationData{} }
 func (m *OrganizationData) String() string            { return proto.CompactTextString(m) }
 func (*OrganizationData) ProtoMessage()               {}
-func (*OrganizationData) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{0} }
+func (*OrganizationData) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{0} }
 
 func (m *OrganizationData) GetEndpoint() []*Endpoint {
 	if m != nil {
@@ -116,7 +116,7 @@ type Endpoint struct {
 func (m *Endpoint) Reset()                    { *m = Endpoint{} }
 func (m *Endpoint) String() string            { return proto.CompactTextString(m) }
 func (*Endpoint) ProtoMessage()               {}
-func (*Endpoint) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{1} }
+func (*Endpoint) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{1} }
 
 func (m *Endpoint) GetReference() string {
 	if m != nil {
@@ -130,9 +130,9 @@ func init() {
 	proto.RegisterType((*Endpoint)(nil), "buffer.Endpoint")
 }
 
-func init() { proto.RegisterFile("organization.proto", fileDescriptor11) }
+func init() { proto.RegisterFile("organization.proto", fileDescriptor12) }
 
-var fileDescriptor11 = []byte{
+var fileDescriptor12 = []byte{
 	// 303 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x54, 0x91, 0x4d, 0x6a, 0xf3, 0x30,
 	0x10, 0x86, 0x71, 0x92, 0xcf, 0x71, 0x26, 0xe1, 0x6b, 0x98, 0x45, 0x11, 0xa5, 0x0b, 0x93, 0x95,

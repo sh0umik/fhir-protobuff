@@ -33,7 +33,7 @@ type Procedure struct {
 func (m *Procedure) Reset()                    { *m = Procedure{} }
 func (m *Procedure) String() string            { return proto.CompactTextString(m) }
 func (*Procedure) ProtoMessage()               {}
-func (*Procedure) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{0} }
+func (*Procedure) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{0} }
 
 func (m *Procedure) GetStatus() string {
 	if m != nil {
@@ -140,7 +140,7 @@ type Outcome struct {
 func (m *Outcome) Reset()                    { *m = Outcome{} }
 func (m *Outcome) String() string            { return proto.CompactTextString(m) }
 func (*Outcome) ProtoMessage()               {}
-func (*Outcome) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{1} }
+func (*Outcome) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{1} }
 
 func (m *Outcome) GetText() string {
 	if m != nil {
@@ -156,7 +156,7 @@ type ReasonCode struct {
 func (m *ReasonCode) Reset()                    { *m = ReasonCode{} }
 func (m *ReasonCode) String() string            { return proto.CompactTextString(m) }
 func (*ReasonCode) ProtoMessage()               {}
-func (*ReasonCode) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{2} }
+func (*ReasonCode) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{2} }
 
 func (m *ReasonCode) GetText() string {
 	if m != nil {
@@ -173,7 +173,7 @@ type Report struct {
 func (m *Report) Reset()                    { *m = Report{} }
 func (m *Report) String() string            { return proto.CompactTextString(m) }
 func (*Report) ProtoMessage()               {}
-func (*Report) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{3} }
+func (*Report) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{3} }
 
 func (m *Report) GetDisplay() string {
 	if m != nil {
@@ -197,7 +197,7 @@ type PPerformer struct {
 func (m *PPerformer) Reset()                    { *m = PPerformer{} }
 func (m *PPerformer) String() string            { return proto.CompactTextString(m) }
 func (*PPerformer) ProtoMessage()               {}
-func (*PPerformer) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{4} }
+func (*PPerformer) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{4} }
 
 func (m *PPerformer) GetRole() *Role {
 	if m != nil {
@@ -220,7 +220,7 @@ type FollowUp struct {
 func (m *FollowUp) Reset()                    { *m = FollowUp{} }
 func (m *FollowUp) String() string            { return proto.CompactTextString(m) }
 func (*FollowUp) ProtoMessage()               {}
-func (*FollowUp) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{5} }
+func (*FollowUp) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{5} }
 
 func (m *FollowUp) GetText() string {
 	if m != nil {
@@ -237,7 +237,7 @@ type PerformedPeriod struct {
 func (m *PerformedPeriod) Reset()                    { *m = PerformedPeriod{} }
 func (m *PerformedPeriod) String() string            { return proto.CompactTextString(m) }
 func (*PerformedPeriod) ProtoMessage()               {}
-func (*PerformedPeriod) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{6} }
+func (*PerformedPeriod) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{6} }
 
 func (m *PerformedPeriod) GetStart() string {
 	if m != nil {
@@ -263,9 +263,9 @@ func init() {
 	proto.RegisterType((*PerformedPeriod)(nil), "buffer.PerformedPeriod")
 }
 
-func init() { proto.RegisterFile("procedure.proto", fileDescriptor14) }
+func init() { proto.RegisterFile("procedure.proto", fileDescriptor15) }
 
-var fileDescriptor14 = []byte{
+var fileDescriptor15 = []byte{
 	// 456 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x53, 0x5d, 0x8b, 0xd3, 0x40,
 	0x14, 0xa5, 0x5f, 0x69, 0x73, 0xdb, 0x6d, 0x97, 0x8b, 0xe8, 0x20, 0x2a, 0x25, 0x82, 0x54, 0x90,

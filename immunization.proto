@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package buffer;
+
+import "common.proto";
+
+message Immunization {
+    string status = 1;
+    Patient patient = 2;
+    bool notGiven = 3;
+    string resourceType = 4;
+    VaccineCode vaccineCode = 5;
+    Meta meta = 6;
+    string date = 7;
+    bool primarySource = 8;
+    ImmuEncounter encounter = 9;
+}
+
+message ImmuEncounter {
+    string reference = 1;
+}
+
+
+message VaccineCode {
+    string text = 1;
+    repeated Coding coding = 2;
+}
+

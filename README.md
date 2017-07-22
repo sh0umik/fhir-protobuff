@@ -8,8 +8,10 @@ Feel free to fork and contribute
 
 ## Primary FHIR Resource to implement
 
+
 | Resource | Model | Status |
 |:---:|:---:|:---:|
+|Bundle| | |
 |Patient| Init | 80% |
 |FamilyMemberHistory|
 |Practitioner| Init | 80% |
@@ -21,7 +23,7 @@ Feel free to fork and contribute
 |MedicationRequest| Init |80% |
 |Observation| Init | 80% |
 |DiagnosticReport| Init | 80% |
-|Immunization|
+|Immunization| Init | 60% |
 |CarePlan| Init | 80% |
 |Goal| Init | 80% |
 |Organization| Init | 90% |

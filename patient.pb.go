@@ -36,7 +36,7 @@ type PatientData struct {
 func (m *PatientData) Reset()                    { *m = PatientData{} }
 func (m *PatientData) String() string            { return proto.CompactTextString(m) }
 func (*PatientData) ProtoMessage()               {}
-func (*PatientData) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{0} }
+func (*PatientData) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{0} }
 
 func (m *PatientData) GetManagingOrganization() *ManagingOrganization {
 	if m != nil {
@@ -165,7 +165,7 @@ type MaritalStatus struct {
 func (m *MaritalStatus) Reset()                    { *m = MaritalStatus{} }
 func (m *MaritalStatus) String() string            { return proto.CompactTextString(m) }
 func (*MaritalStatus) ProtoMessage()               {}
-func (*MaritalStatus) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{1} }
+func (*MaritalStatus) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{1} }
 
 func (m *MaritalStatus) GetText() string {
 	if m != nil {
@@ -186,9 +186,9 @@ func init() {
 	proto.RegisterType((*MaritalStatus)(nil), "buffer.MaritalStatus")
 }
 
-func init() { proto.RegisterFile("patient.proto", fileDescriptor12) }
+func init() { proto.RegisterFile("patient.proto", fileDescriptor13) }
 
-var fileDescriptor12 = []byte{
+var fileDescriptor13 = []byte{
 	// 439 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x93, 0xcf, 0x6e, 0x13, 0x31,
 	0x10, 0xc6, 0x95, 0xb4, 0xdd, 0x36, 0xce, 0x3f, 0xb0, 0x0a, 0xb2, 0x50, 0x0f, 0xab, 0x1c, 0xd0,

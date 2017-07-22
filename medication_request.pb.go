@@ -39,7 +39,7 @@ type MedicationRequest struct {
 func (m *MedicationRequest) Reset()                    { *m = MedicationRequest{} }
 func (m *MedicationRequest) String() string            { return proto.CompactTextString(m) }
 func (*MedicationRequest) ProtoMessage()               {}
-func (*MedicationRequest) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{0} }
+func (*MedicationRequest) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{0} }
 
 func (m *MedicationRequest) GetStatus() string {
 	if m != nil {
@@ -193,7 +193,7 @@ type DosageInstruction struct {
 func (m *DosageInstruction) Reset()                    { *m = DosageInstruction{} }
 func (m *DosageInstruction) String() string            { return proto.CompactTextString(m) }
 func (*DosageInstruction) ProtoMessage()               {}
-func (*DosageInstruction) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{1} }
+func (*DosageInstruction) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{1} }
 
 func (m *DosageInstruction) GetSequence() int64 {
 	if m != nil {
@@ -244,7 +244,7 @@ type Method struct {
 func (m *Method) Reset()                    { *m = Method{} }
 func (m *Method) String() string            { return proto.CompactTextString(m) }
 func (*Method) ProtoMessage()               {}
-func (*Method) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{2} }
+func (*Method) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{2} }
 
 func (m *Method) GetCoding() []*Coding {
 	if m != nil {
@@ -260,7 +260,7 @@ type Timing struct {
 func (m *Timing) Reset()                    { *m = Timing{} }
 func (m *Timing) String() string            { return proto.CompactTextString(m) }
 func (*Timing) ProtoMessage()               {}
-func (*Timing) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{3} }
+func (*Timing) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{3} }
 
 func (m *Timing) GetRepeat() *Repeat {
 	if m != nil {
@@ -279,7 +279,7 @@ type Repeat struct {
 func (m *Repeat) Reset()                    { *m = Repeat{} }
 func (m *Repeat) String() string            { return proto.CompactTextString(m) }
 func (*Repeat) ProtoMessage()               {}
-func (*Repeat) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{4} }
+func (*Repeat) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{4} }
 
 func (m *Repeat) GetFrequency() int64 {
 	if m != nil {
@@ -317,7 +317,7 @@ type BoundsPeriod struct {
 func (m *BoundsPeriod) Reset()                    { *m = BoundsPeriod{} }
 func (m *BoundsPeriod) String() string            { return proto.CompactTextString(m) }
 func (*BoundsPeriod) ProtoMessage()               {}
-func (*BoundsPeriod) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{5} }
+func (*BoundsPeriod) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{5} }
 
 func (m *BoundsPeriod) GetStart() string {
 	if m != nil {
@@ -343,7 +343,7 @@ type DoseQuantity struct {
 func (m *DoseQuantity) Reset()                    { *m = DoseQuantity{} }
 func (m *DoseQuantity) String() string            { return proto.CompactTextString(m) }
 func (*DoseQuantity) ProtoMessage()               {}
-func (*DoseQuantity) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{6} }
+func (*DoseQuantity) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{6} }
 
 func (m *DoseQuantity) GetCode() string {
 	if m != nil {
@@ -380,7 +380,7 @@ type Route struct {
 func (m *Route) Reset()                    { *m = Route{} }
 func (m *Route) String() string            { return proto.CompactTextString(m) }
 func (*Route) ProtoMessage()               {}
-func (*Route) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{7} }
+func (*Route) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{7} }
 
 func (m *Route) GetCoding() []*Coding {
 	if m != nil {
@@ -397,7 +397,7 @@ type MRequester struct {
 func (m *MRequester) Reset()                    { *m = MRequester{} }
 func (m *MRequester) String() string            { return proto.CompactTextString(m) }
 func (*MRequester) ProtoMessage()               {}
-func (*MRequester) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{8} }
+func (*MRequester) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{8} }
 
 func (m *MRequester) GetOnBehalfOf() *OnBehalfOf {
 	if m != nil {
@@ -421,7 +421,7 @@ type Agent struct {
 func (m *Agent) Reset()                    { *m = Agent{} }
 func (m *Agent) String() string            { return proto.CompactTextString(m) }
 func (*Agent) ProtoMessage()               {}
-func (*Agent) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{9} }
+func (*Agent) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{9} }
 
 func (m *Agent) GetDisplay() string {
 	if m != nil {
@@ -444,7 +444,7 @@ type OnBehalfOf struct {
 func (m *OnBehalfOf) Reset()                    { *m = OnBehalfOf{} }
 func (m *OnBehalfOf) String() string            { return proto.CompactTextString(m) }
 func (*OnBehalfOf) ProtoMessage()               {}
-func (*OnBehalfOf) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{10} }
+func (*OnBehalfOf) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{10} }
 
 func (m *OnBehalfOf) GetReference() string {
 	if m != nil {
@@ -460,7 +460,7 @@ type MedicationReference struct {
 func (m *MedicationReference) Reset()                    { *m = MedicationReference{} }
 func (m *MedicationReference) String() string            { return proto.CompactTextString(m) }
 func (*MedicationReference) ProtoMessage()               {}
-func (*MedicationReference) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{11} }
+func (*MedicationReference) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{11} }
 
 func (m *MedicationReference) GetReference() string {
 	if m != nil {
@@ -477,7 +477,7 @@ type Substitution struct {
 func (m *Substitution) Reset()                    { *m = Substitution{} }
 func (m *Substitution) String() string            { return proto.CompactTextString(m) }
 func (*Substitution) ProtoMessage()               {}
-func (*Substitution) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{12} }
+func (*Substitution) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{12} }
 
 func (m *Substitution) GetReason() *Reason {
 	if m != nil {
@@ -504,7 +504,7 @@ type DispenseRequest struct {
 func (m *DispenseRequest) Reset()                    { *m = DispenseRequest{} }
 func (m *DispenseRequest) String() string            { return proto.CompactTextString(m) }
 func (*DispenseRequest) ProtoMessage()               {}
-func (*DispenseRequest) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{13} }
+func (*DispenseRequest) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{13} }
 
 func (m *DispenseRequest) GetValidityPeriod() *ValidityPeriod {
 	if m != nil {
@@ -551,7 +551,7 @@ type Quantity struct {
 func (m *Quantity) Reset()                    { *m = Quantity{} }
 func (m *Quantity) String() string            { return proto.CompactTextString(m) }
 func (*Quantity) ProtoMessage()               {}
-func (*Quantity) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{14} }
+func (*Quantity) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{14} }
 
 func (m *Quantity) GetCode() string {
 	if m != nil {
@@ -591,7 +591,7 @@ type ExpectedSupplyDuration struct {
 func (m *ExpectedSupplyDuration) Reset()                    { *m = ExpectedSupplyDuration{} }
 func (m *ExpectedSupplyDuration) String() string            { return proto.CompactTextString(m) }
 func (*ExpectedSupplyDuration) ProtoMessage()               {}
-func (*ExpectedSupplyDuration) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{15} }
+func (*ExpectedSupplyDuration) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{15} }
 
 func (m *ExpectedSupplyDuration) GetCode() string {
 	if m != nil {
@@ -629,7 +629,7 @@ type ValidityPeriod struct {
 func (m *ValidityPeriod) Reset()                    { *m = ValidityPeriod{} }
 func (m *ValidityPeriod) String() string            { return proto.CompactTextString(m) }
 func (*ValidityPeriod) ProtoMessage()               {}
-func (*ValidityPeriod) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{16} }
+func (*ValidityPeriod) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{16} }
 
 func (m *ValidityPeriod) GetStart() string {
 	if m != nil {
@@ -654,7 +654,7 @@ type GroupIdentifier struct {
 func (m *GroupIdentifier) Reset()                    { *m = GroupIdentifier{} }
 func (m *GroupIdentifier) String() string            { return proto.CompactTextString(m) }
 func (*GroupIdentifier) ProtoMessage()               {}
-func (*GroupIdentifier) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{17} }
+func (*GroupIdentifier) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{17} }
 
 func (m *GroupIdentifier) GetUse() string {
 	if m != nil {
@@ -684,7 +684,7 @@ type Definition struct {
 func (m *Definition) Reset()                    { *m = Definition{} }
 func (m *Definition) String() string            { return proto.CompactTextString(m) }
 func (*Definition) ProtoMessage()               {}
-func (*Definition) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{18} }
+func (*Definition) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{18} }
 
 func (m *Definition) GetReference() string {
 	if m != nil {
@@ -715,9 +715,9 @@ func init() {
 	proto.RegisterType((*Definition)(nil), "buffer.Definition")
 }
 
-func init() { proto.RegisterFile("medication_request.proto", fileDescriptor9) }
+func init() { proto.RegisterFile("medication_request.proto", fileDescriptor10) }
 
-var fileDescriptor9 = []byte{
+var fileDescriptor10 = []byte{
 	// 1025 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x56, 0xdd, 0x4e, 0x1b, 0x47,
 	0x14, 0x96, 0x0d, 0x18, 0x7c, 0x70, 0x6c, 0x18, 0x10, 0xdd, 0xa6, 0x55, 0x84, 0xb6, 0x52, 0x45,

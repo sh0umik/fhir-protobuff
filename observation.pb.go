@@ -29,7 +29,7 @@ type Observation struct {
 func (m *Observation) Reset()                    { *m = Observation{} }
 func (m *Observation) String() string            { return proto.CompactTextString(m) }
 func (*Observation) ProtoMessage()               {}
-func (*Observation) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{0} }
+func (*Observation) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{0} }
 
 func (m *Observation) GetStatus() string {
 	if m != nil {
@@ -108,7 +108,7 @@ type OEncounter struct {
 func (m *OEncounter) Reset()                    { *m = OEncounter{} }
 func (m *OEncounter) String() string            { return proto.CompactTextString(m) }
 func (*OEncounter) ProtoMessage()               {}
-func (*OEncounter) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{1} }
+func (*OEncounter) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{1} }
 
 func (m *OEncounter) GetReference() string {
 	if m != nil {
@@ -125,7 +125,7 @@ type Component struct {
 func (m *Component) Reset()                    { *m = Component{} }
 func (m *Component) String() string            { return proto.CompactTextString(m) }
 func (*Component) ProtoMessage()               {}
-func (*Component) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{2} }
+func (*Component) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{2} }
 
 func (m *Component) GetValueQuantity() *ValueQuantity {
 	if m != nil {
@@ -151,7 +151,7 @@ type ValueQuantity struct {
 func (m *ValueQuantity) Reset()                    { *m = ValueQuantity{} }
 func (m *ValueQuantity) String() string            { return proto.CompactTextString(m) }
 func (*ValueQuantity) ProtoMessage()               {}
-func (*ValueQuantity) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{3} }
+func (*ValueQuantity) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{3} }
 
 func (m *ValueQuantity) GetCode() string {
 	if m != nil {
@@ -188,9 +188,9 @@ func init() {
 	proto.RegisterType((*ValueQuantity)(nil), "buffer.ValueQuantity")
 }
 
-func init() { proto.RegisterFile("observation.proto", fileDescriptor10) }
+func init() { proto.RegisterFile("observation.proto", fileDescriptor11) }
 
-var fileDescriptor10 = []byte{
+var fileDescriptor11 = []byte{
 	// 375 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x74, 0x92, 0x4f, 0x8b, 0xd4, 0x40,
 	0x10, 0xc5, 0x99, 0xc9, 0x6c, 0x76, 0x53, 0x99, 0x55, 0xa7, 0x50, 0x69, 0xc4, 0x43, 0xc8, 0x69,
