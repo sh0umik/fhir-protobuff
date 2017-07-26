@@ -35,7 +35,7 @@ message Entry {
         AllergyIntolerance allergy_intolerance = 3;
         Encounter encounter = 4;
         ConditionData condition = 5;
-        Procedure precedure = 6;
+        Procedure procedure = 6;
         //Medication medication = 7;
         MedicationRequest medication_request = 7;
         Observation observation = 8;
