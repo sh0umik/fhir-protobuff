@@ -21,6 +21,7 @@ message Goal {
     repeated Identifier identifier = 14;
     string id = 15;
     Subject subject = 16;
+    Meta meta = 17;
 }
 
 message Target {

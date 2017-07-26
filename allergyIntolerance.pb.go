@@ -32,7 +32,6 @@ It has these top-level messages:
 	Reporter
 	Bundle
 	Entry
-	OneOfResource
 	CarePlan
 	CareTeam
 	Activity

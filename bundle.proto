@@ -28,11 +28,7 @@ message Bundle {
 }
 
 message Entry {
-    string fullUrl = 1;
-    string resource = 2;
-}
-
-message OneOfResource {
+    string fullUrl = 14;
     oneof resource {
         PatientData patient = 1;
         PractitionerData provider = 2;

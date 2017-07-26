@@ -28,6 +28,7 @@ message DiagnosticReport {
   Context context = 21;
   string verificationStatus = 22;
   repeated Result result = 23;
+  Meta meta = 24;
 }
 
 message Result {

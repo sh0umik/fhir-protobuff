@@ -21,6 +21,7 @@ message ConditionData {
   string verificationStatus = 14;
   Stage stage = 15;
   Subject subject = 16;
+  Meta meta = 17;
 }
 
 

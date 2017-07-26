@@ -58,14 +58,93 @@ func (m *QueryString) GetQuery() string {
 }
 
 type FHIRUpdateResource struct {
-	SytemIdentifier *ID            `protobuf:"bytes,2,opt,name=sytemIdentifier" json:"sytemIdentifier,omitempty"`
-	Resource        *OneOfResource `protobuf:"bytes,3,opt,name=resource" json:"resource,omitempty"`
+	SytemIdentifier *ID `protobuf:"bytes,14,opt,name=sytemIdentifier" json:"sytemIdentifier,omitempty"`
+	// Types that are valid to be assigned to Resource:
+	//	*FHIRUpdateResource_Patient
+	//	*FHIRUpdateResource_Provider
+	//	*FHIRUpdateResource_AllergyIntolerance
+	//	*FHIRUpdateResource_Encounter
+	//	*FHIRUpdateResource_Condition
+	//	*FHIRUpdateResource_Procedure
+	//	*FHIRUpdateResource_MedicationRequest
+	//	*FHIRUpdateResource_Observation
+	//	*FHIRUpdateResource_DiagnosticReport
+	//	*FHIRUpdateResource_Immunication
+	//	*FHIRUpdateResource_Careplan
+	//	*FHIRUpdateResource_Goal
+	//	*FHIRUpdateResource_Organization
+	Resource isFHIRUpdateResource_Resource `protobuf_oneof:"resource"`
 }
 
 func (m *FHIRUpdateResource) Reset()                    { *m = FHIRUpdateResource{} }
 func (m *FHIRUpdateResource) String() string            { return proto.CompactTextString(m) }
 func (*FHIRUpdateResource) ProtoMessage()               {}
 func (*FHIRUpdateResource) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{2} }
+
+type isFHIRUpdateResource_Resource interface {
+	isFHIRUpdateResource_Resource()
+}
+
+type FHIRUpdateResource_Patient struct {
+	Patient *PatientData `protobuf:"bytes,1,opt,name=patient,oneof"`
+}
+type FHIRUpdateResource_Provider struct {
+	Provider *PractitionerData `protobuf:"bytes,2,opt,name=provider,oneof"`
+}
+type FHIRUpdateResource_AllergyIntolerance struct {
+	AllergyIntolerance *AllergyIntolerance `protobuf:"bytes,3,opt,name=allergy_intolerance,json=allergyIntolerance,oneof"`
+}
+type FHIRUpdateResource_Encounter struct {
+	Encounter *Encounter `protobuf:"bytes,4,opt,name=encounter,oneof"`
+}
+type FHIRUpdateResource_Condition struct {
+	Condition *ConditionData `protobuf:"bytes,5,opt,name=condition,oneof"`
+}
+type FHIRUpdateResource_Procedure struct {
+	Procedure *Procedure `protobuf:"bytes,6,opt,name=procedure,oneof"`
+}
+type FHIRUpdateResource_MedicationRequest struct {
+	MedicationRequest *MedicationRequest `protobuf:"bytes,7,opt,name=medication_request,json=medicationRequest,oneof"`
+}
+type FHIRUpdateResource_Observation struct {
+	Observation *Observation `protobuf:"bytes,8,opt,name=observation,oneof"`
+}
+type FHIRUpdateResource_DiagnosticReport struct {
+	DiagnosticReport *DiagnosticReport `protobuf:"bytes,9,opt,name=diagnostic_report,json=diagnosticReport,oneof"`
+}
+type FHIRUpdateResource_Immunication struct {
+	Immunication *Immunization `protobuf:"bytes,10,opt,name=immunication,oneof"`
+}
+type FHIRUpdateResource_Careplan struct {
+	Careplan *CarePlan `protobuf:"bytes,11,opt,name=careplan,oneof"`
+}
+type FHIRUpdateResource_Goal struct {
+	Goal *Goal `protobuf:"bytes,12,opt,name=goal,oneof"`
+}
+type FHIRUpdateResource_Organization struct {
+	Organization *OrganizationData `protobuf:"bytes,13,opt,name=organization,oneof"`
+}
+
+func (*FHIRUpdateResource_Patient) isFHIRUpdateResource_Resource()            {}
+func (*FHIRUpdateResource_Provider) isFHIRUpdateResource_Resource()           {}
+func (*FHIRUpdateResource_AllergyIntolerance) isFHIRUpdateResource_Resource() {}
+func (*FHIRUpdateResource_Encounter) isFHIRUpdateResource_Resource()          {}
+func (*FHIRUpdateResource_Condition) isFHIRUpdateResource_Resource()          {}
+func (*FHIRUpdateResource_Procedure) isFHIRUpdateResource_Resource()          {}
+func (*FHIRUpdateResource_MedicationRequest) isFHIRUpdateResource_Resource()  {}
+func (*FHIRUpdateResource_Observation) isFHIRUpdateResource_Resource()        {}
+func (*FHIRUpdateResource_DiagnosticReport) isFHIRUpdateResource_Resource()   {}
+func (*FHIRUpdateResource_Immunication) isFHIRUpdateResource_Resource()       {}
+func (*FHIRUpdateResource_Careplan) isFHIRUpdateResource_Resource()           {}
+func (*FHIRUpdateResource_Goal) isFHIRUpdateResource_Resource()               {}
+func (*FHIRUpdateResource_Organization) isFHIRUpdateResource_Resource()       {}
+
+func (m *FHIRUpdateResource) GetResource() isFHIRUpdateResource_Resource {
+	if m != nil {
+		return m.Resource
+	}
+	return nil
+}
 
 func (m *FHIRUpdateResource) GetSytemIdentifier() *ID {
 	if m != nil {
@@ -74,11 +153,378 @@ func (m *FHIRUpdateResource) GetSytemIdentifier() *ID {
 	return nil
 }
 
-func (m *FHIRUpdateResource) GetResource() *OneOfResource {
-	if m != nil {
-		return m.Resource
+func (m *FHIRUpdateResource) GetPatient() *PatientData {
+	if x, ok := m.GetResource().(*FHIRUpdateResource_Patient); ok {
+		return x.Patient
 	}
 	return nil
+}
+
+func (m *FHIRUpdateResource) GetProvider() *PractitionerData {
+	if x, ok := m.GetResource().(*FHIRUpdateResource_Provider); ok {
+		return x.Provider
+	}
+	return nil
+}
+
+func (m *FHIRUpdateResource) GetAllergyIntolerance() *AllergyIntolerance {
+	if x, ok := m.GetResource().(*FHIRUpdateResource_AllergyIntolerance); ok {
+		return x.AllergyIntolerance
+	}
+	return nil
+}
+
+func (m *FHIRUpdateResource) GetEncounter() *Encounter {
+	if x, ok := m.GetResource().(*FHIRUpdateResource_Encounter); ok {
+		return x.Encounter
+	}
+	return nil
+}
+
+func (m *FHIRUpdateResource) GetCondition() *ConditionData {
+	if x, ok := m.GetResource().(*FHIRUpdateResource_Condition); ok {
+		return x.Condition
+	}
+	return nil
+}
+
+func (m *FHIRUpdateResource) GetProcedure() *Procedure {
+	if x, ok := m.GetResource().(*FHIRUpdateResource_Procedure); ok {
+		return x.Procedure
+	}
+	return nil
+}
+
+func (m *FHIRUpdateResource) GetMedicationRequest() *MedicationRequest {
+	if x, ok := m.GetResource().(*FHIRUpdateResource_MedicationRequest); ok {
+		return x.MedicationRequest
+	}
+	return nil
+}
+
+func (m *FHIRUpdateResource) GetObservation() *Observation {
+	if x, ok := m.GetResource().(*FHIRUpdateResource_Observation); ok {
+		return x.Observation
+	}
+	return nil
+}
+
+func (m *FHIRUpdateResource) GetDiagnosticReport() *DiagnosticReport {
+	if x, ok := m.GetResource().(*FHIRUpdateResource_DiagnosticReport); ok {
+		return x.DiagnosticReport
+	}
+	return nil
+}
+
+func (m *FHIRUpdateResource) GetImmunication() *Immunization {
+	if x, ok := m.GetResource().(*FHIRUpdateResource_Immunication); ok {
+		return x.Immunication
+	}
+	return nil
+}
+
+func (m *FHIRUpdateResource) GetCareplan() *CarePlan {
+	if x, ok := m.GetResource().(*FHIRUpdateResource_Careplan); ok {
+		return x.Careplan
+	}
+	return nil
+}
+
+func (m *FHIRUpdateResource) GetGoal() *Goal {
+	if x, ok := m.GetResource().(*FHIRUpdateResource_Goal); ok {
+		return x.Goal
+	}
+	return nil
+}
+
+func (m *FHIRUpdateResource) GetOrganization() *OrganizationData {
+	if x, ok := m.GetResource().(*FHIRUpdateResource_Organization); ok {
+		return x.Organization
+	}
+	return nil
+}
+
+// XXX_OneofFuncs is for the internal use of the proto package.
+func (*FHIRUpdateResource) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
+	return _FHIRUpdateResource_OneofMarshaler, _FHIRUpdateResource_OneofUnmarshaler, _FHIRUpdateResource_OneofSizer, []interface{}{
+		(*FHIRUpdateResource_Patient)(nil),
+		(*FHIRUpdateResource_Provider)(nil),
+		(*FHIRUpdateResource_AllergyIntolerance)(nil),
+		(*FHIRUpdateResource_Encounter)(nil),
+		(*FHIRUpdateResource_Condition)(nil),
+		(*FHIRUpdateResource_Procedure)(nil),
+		(*FHIRUpdateResource_MedicationRequest)(nil),
+		(*FHIRUpdateResource_Observation)(nil),
+		(*FHIRUpdateResource_DiagnosticReport)(nil),
+		(*FHIRUpdateResource_Immunication)(nil),
+		(*FHIRUpdateResource_Careplan)(nil),
+		(*FHIRUpdateResource_Goal)(nil),
+		(*FHIRUpdateResource_Organization)(nil),
+	}
+}
+
+func _FHIRUpdateResource_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
+	m := msg.(*FHIRUpdateResource)
+	// resource
+	switch x := m.Resource.(type) {
+	case *FHIRUpdateResource_Patient:
+		b.EncodeVarint(1<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.Patient); err != nil {
+			return err
+		}
+	case *FHIRUpdateResource_Provider:
+		b.EncodeVarint(2<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.Provider); err != nil {
+			return err
+		}
+	case *FHIRUpdateResource_AllergyIntolerance:
+		b.EncodeVarint(3<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.AllergyIntolerance); err != nil {
+			return err
+		}
+	case *FHIRUpdateResource_Encounter:
+		b.EncodeVarint(4<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.Encounter); err != nil {
+			return err
+		}
+	case *FHIRUpdateResource_Condition:
+		b.EncodeVarint(5<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.Condition); err != nil {
+			return err
+		}
+	case *FHIRUpdateResource_Procedure:
+		b.EncodeVarint(6<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.Procedure); err != nil {
+			return err
+		}
+	case *FHIRUpdateResource_MedicationRequest:
+		b.EncodeVarint(7<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.MedicationRequest); err != nil {
+			return err
+		}
+	case *FHIRUpdateResource_Observation:
+		b.EncodeVarint(8<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.Observation); err != nil {
+			return err
+		}
+	case *FHIRUpdateResource_DiagnosticReport:
+		b.EncodeVarint(9<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.DiagnosticReport); err != nil {
+			return err
+		}
+	case *FHIRUpdateResource_Immunication:
+		b.EncodeVarint(10<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.Immunication); err != nil {
+			return err
+		}
+	case *FHIRUpdateResource_Careplan:
+		b.EncodeVarint(11<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.Careplan); err != nil {
+			return err
+		}
+	case *FHIRUpdateResource_Goal:
+		b.EncodeVarint(12<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.Goal); err != nil {
+			return err
+		}
+	case *FHIRUpdateResource_Organization:
+		b.EncodeVarint(13<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.Organization); err != nil {
+			return err
+		}
+	case nil:
+	default:
+		return fmt.Errorf("FHIRUpdateResource.Resource has unexpected type %T", x)
+	}
+	return nil
+}
+
+func _FHIRUpdateResource_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
+	m := msg.(*FHIRUpdateResource)
+	switch tag {
+	case 1: // resource.patient
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(PatientData)
+		err := b.DecodeMessage(msg)
+		m.Resource = &FHIRUpdateResource_Patient{msg}
+		return true, err
+	case 2: // resource.provider
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(PractitionerData)
+		err := b.DecodeMessage(msg)
+		m.Resource = &FHIRUpdateResource_Provider{msg}
+		return true, err
+	case 3: // resource.allergy_intolerance
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(AllergyIntolerance)
+		err := b.DecodeMessage(msg)
+		m.Resource = &FHIRUpdateResource_AllergyIntolerance{msg}
+		return true, err
+	case 4: // resource.encounter
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(Encounter)
+		err := b.DecodeMessage(msg)
+		m.Resource = &FHIRUpdateResource_Encounter{msg}
+		return true, err
+	case 5: // resource.condition
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(ConditionData)
+		err := b.DecodeMessage(msg)
+		m.Resource = &FHIRUpdateResource_Condition{msg}
+		return true, err
+	case 6: // resource.procedure
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(Procedure)
+		err := b.DecodeMessage(msg)
+		m.Resource = &FHIRUpdateResource_Procedure{msg}
+		return true, err
+	case 7: // resource.medication_request
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(MedicationRequest)
+		err := b.DecodeMessage(msg)
+		m.Resource = &FHIRUpdateResource_MedicationRequest{msg}
+		return true, err
+	case 8: // resource.observation
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(Observation)
+		err := b.DecodeMessage(msg)
+		m.Resource = &FHIRUpdateResource_Observation{msg}
+		return true, err
+	case 9: // resource.diagnostic_report
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(DiagnosticReport)
+		err := b.DecodeMessage(msg)
+		m.Resource = &FHIRUpdateResource_DiagnosticReport{msg}
+		return true, err
+	case 10: // resource.immunication
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(Immunization)
+		err := b.DecodeMessage(msg)
+		m.Resource = &FHIRUpdateResource_Immunication{msg}
+		return true, err
+	case 11: // resource.careplan
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(CarePlan)
+		err := b.DecodeMessage(msg)
+		m.Resource = &FHIRUpdateResource_Careplan{msg}
+		return true, err
+	case 12: // resource.goal
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(Goal)
+		err := b.DecodeMessage(msg)
+		m.Resource = &FHIRUpdateResource_Goal{msg}
+		return true, err
+	case 13: // resource.organization
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(OrganizationData)
+		err := b.DecodeMessage(msg)
+		m.Resource = &FHIRUpdateResource_Organization{msg}
+		return true, err
+	default:
+		return false, nil
+	}
+}
+
+func _FHIRUpdateResource_OneofSizer(msg proto.Message) (n int) {
+	m := msg.(*FHIRUpdateResource)
+	// resource
+	switch x := m.Resource.(type) {
+	case *FHIRUpdateResource_Patient:
+		s := proto.Size(x.Patient)
+		n += proto.SizeVarint(1<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *FHIRUpdateResource_Provider:
+		s := proto.Size(x.Provider)
+		n += proto.SizeVarint(2<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *FHIRUpdateResource_AllergyIntolerance:
+		s := proto.Size(x.AllergyIntolerance)
+		n += proto.SizeVarint(3<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *FHIRUpdateResource_Encounter:
+		s := proto.Size(x.Encounter)
+		n += proto.SizeVarint(4<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *FHIRUpdateResource_Condition:
+		s := proto.Size(x.Condition)
+		n += proto.SizeVarint(5<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *FHIRUpdateResource_Procedure:
+		s := proto.Size(x.Procedure)
+		n += proto.SizeVarint(6<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *FHIRUpdateResource_MedicationRequest:
+		s := proto.Size(x.MedicationRequest)
+		n += proto.SizeVarint(7<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *FHIRUpdateResource_Observation:
+		s := proto.Size(x.Observation)
+		n += proto.SizeVarint(8<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *FHIRUpdateResource_DiagnosticReport:
+		s := proto.Size(x.DiagnosticReport)
+		n += proto.SizeVarint(9<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *FHIRUpdateResource_Immunication:
+		s := proto.Size(x.Immunication)
+		n += proto.SizeVarint(10<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *FHIRUpdateResource_Careplan:
+		s := proto.Size(x.Careplan)
+		n += proto.SizeVarint(11<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *FHIRUpdateResource_Goal:
+		s := proto.Size(x.Goal)
+		n += proto.SizeVarint(12<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *FHIRUpdateResource_Organization:
+		s := proto.Size(x.Organization)
+		n += proto.SizeVarint(13<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case nil:
+	default:
+		panic(fmt.Sprintf("proto: unexpected type %T in oneof", x))
+	}
+	return n
 }
 
 func init() {
@@ -98,10 +544,10 @@ const _ = grpc.SupportPackageIsVersion4
 // Client API for FHIR service
 
 type FHIRClient interface {
-	GetResource(ctx context.Context, in *ID, opts ...grpc.CallOption) (*OneOfResource, error)
-	CreateResource(ctx context.Context, in *FHIRUpdateResource, opts ...grpc.CallOption) (*OneOfResource, error)
-	UpdateResource(ctx context.Context, in *FHIRUpdateResource, opts ...grpc.CallOption) (*OneOfResource, error)
-	DeleteResource(ctx context.Context, in *ID, opts ...grpc.CallOption) (*OneOfResource, error)
+	GetResource(ctx context.Context, in *ID, opts ...grpc.CallOption) (*FHIRUpdateResource, error)
+	CreateResource(ctx context.Context, in *FHIRUpdateResource, opts ...grpc.CallOption) (*FHIRUpdateResource, error)
+	UpdateResource(ctx context.Context, in *FHIRUpdateResource, opts ...grpc.CallOption) (*FHIRUpdateResource, error)
+	DeleteResource(ctx context.Context, in *ID, opts ...grpc.CallOption) (*FHIRUpdateResource, error)
 	SearchResource(ctx context.Context, in *QueryString, opts ...grpc.CallOption) (*Bundle, error)
 	BatchInsertResource(ctx context.Context, in *Bundle, opts ...grpc.CallOption) (*Bundle, error)
 }
@@ -114,8 +560,8 @@ func NewFHIRClient(cc *grpc.ClientConn) FHIRClient {
 	return &fHIRClient{cc}
 }
 
-func (c *fHIRClient) GetResource(ctx context.Context, in *ID, opts ...grpc.CallOption) (*OneOfResource, error) {
-	out := new(OneOfResource)
+func (c *fHIRClient) GetResource(ctx context.Context, in *ID, opts ...grpc.CallOption) (*FHIRUpdateResource, error) {
+	out := new(FHIRUpdateResource)
 	err := grpc.Invoke(ctx, "/buffer.FHIR/GetResource", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -123,8 +569,8 @@ func (c *fHIRClient) GetResource(ctx context.Context, in *ID, opts ...grpc.CallO
 	return out, nil
 }
 
-func (c *fHIRClient) CreateResource(ctx context.Context, in *FHIRUpdateResource, opts ...grpc.CallOption) (*OneOfResource, error) {
-	out := new(OneOfResource)
+func (c *fHIRClient) CreateResource(ctx context.Context, in *FHIRUpdateResource, opts ...grpc.CallOption) (*FHIRUpdateResource, error) {
+	out := new(FHIRUpdateResource)
 	err := grpc.Invoke(ctx, "/buffer.FHIR/CreateResource", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -132,8 +578,8 @@ func (c *fHIRClient) CreateResource(ctx context.Context, in *FHIRUpdateResource,
 	return out, nil
 }
 
-func (c *fHIRClient) UpdateResource(ctx context.Context, in *FHIRUpdateResource, opts ...grpc.CallOption) (*OneOfResource, error) {
-	out := new(OneOfResource)
+func (c *fHIRClient) UpdateResource(ctx context.Context, in *FHIRUpdateResource, opts ...grpc.CallOption) (*FHIRUpdateResource, error) {
+	out := new(FHIRUpdateResource)
 	err := grpc.Invoke(ctx, "/buffer.FHIR/UpdateResource", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -141,8 +587,8 @@ func (c *fHIRClient) UpdateResource(ctx context.Context, in *FHIRUpdateResource,
 	return out, nil
 }
 
-func (c *fHIRClient) DeleteResource(ctx context.Context, in *ID, opts ...grpc.CallOption) (*OneOfResource, error) {
-	out := new(OneOfResource)
+func (c *fHIRClient) DeleteResource(ctx context.Context, in *ID, opts ...grpc.CallOption) (*FHIRUpdateResource, error) {
+	out := new(FHIRUpdateResource)
 	err := grpc.Invoke(ctx, "/buffer.FHIR/DeleteResource", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -171,10 +617,10 @@ func (c *fHIRClient) BatchInsertResource(ctx context.Context, in *Bundle, opts .
 // Server API for FHIR service
 
 type FHIRServer interface {
-	GetResource(context.Context, *ID) (*OneOfResource, error)
-	CreateResource(context.Context, *FHIRUpdateResource) (*OneOfResource, error)
-	UpdateResource(context.Context, *FHIRUpdateResource) (*OneOfResource, error)
-	DeleteResource(context.Context, *ID) (*OneOfResource, error)
+	GetResource(context.Context, *ID) (*FHIRUpdateResource, error)
+	CreateResource(context.Context, *FHIRUpdateResource) (*FHIRUpdateResource, error)
+	UpdateResource(context.Context, *FHIRUpdateResource) (*FHIRUpdateResource, error)
+	DeleteResource(context.Context, *ID) (*FHIRUpdateResource, error)
 	SearchResource(context.Context, *QueryString) (*Bundle, error)
 	BatchInsertResource(context.Context, *Bundle) (*Bundle, error)
 }
@@ -327,24 +773,47 @@ var _FHIR_serviceDesc = grpc.ServiceDesc{
 func init() { proto.RegisterFile("fhirServer.proto", fileDescriptor7) }
 
 var fileDescriptor7 = []byte{
-	// 298 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x92, 0xcd, 0x4e, 0x83, 0x40,
-	0x10, 0xc7, 0x2d, 0xd6, 0x46, 0xa7, 0x06, 0xcd, 0x56, 0x13, 0xc2, 0xc9, 0xe0, 0xa5, 0x27, 0x12,
-	0x51, 0xe3, 0xbd, 0xe2, 0x07, 0xa7, 0x46, 0x88, 0x0f, 0xc0, 0xc7, 0x20, 0x9b, 0x54, 0xc0, 0x61,
-	0x31, 0xe1, 0xe0, 0x43, 0xfb, 0x06, 0xa6, 0x4b, 0x17, 0x09, 0x35, 0xc6, 0x78, 0x63, 0x27, 0xbf,
-	0xff, 0x6f, 0x67, 0xd8, 0x81, 0xe3, 0x34, 0xe3, 0x14, 0x20, 0xbd, 0x23, 0xd9, 0x25, 0x15, 0xa2,
-	0x60, 0x93, 0xa8, 0x4e, 0x53, 0x24, 0xf3, 0x30, 0xaa, 0xf3, 0x64, 0x85, 0x6d, 0xd5, 0x9a, 0x83,
-	0xe6, 0xb9, 0x4c, 0x07, 0x8d, 0x27, 0xc6, 0xe8, 0x6c, 0x34, 0x3f, 0xf0, 0x35, 0x9e, 0x30, 0x06,
-	0x63, 0xd1, 0x94, 0x68, 0x68, 0xb2, 0x22, 0xbf, 0xad, 0x73, 0x98, 0x3e, 0xd5, 0x48, 0x4d, 0x20,
-	0x88, 0xe7, 0x2f, 0xec, 0x04, 0xf6, 0xde, 0xd6, 0xc7, 0x4d, 0xaa, 0x3d, 0x58, 0x1f, 0xc0, 0xee,
-	0x1f, 0x3d, 0xff, 0xb9, 0x4c, 0x42, 0x81, 0x3e, 0x56, 0x45, 0x4d, 0x31, 0xb2, 0x2b, 0x38, 0xaa,
-	0x1a, 0x81, 0xaf, 0x5e, 0x82, 0xb9, 0xe0, 0x29, 0x47, 0x92, 0xe6, 0xa9, 0x03, 0x76, 0xdb, 0x94,
-	0xed, 0xb9, 0xfe, 0x10, 0x61, 0x17, 0xb0, 0x4f, 0x1b, 0x83, 0xb1, 0x2b, 0xf1, 0x53, 0x85, 0x2f,
-	0x73, 0x5c, 0xa6, 0x4a, 0xef, 0x77, 0x98, 0xf3, 0xa9, 0xc1, 0x78, 0x7d, 0x3f, 0x73, 0x60, 0xfa,
-	0x80, 0xa2, 0x6b, 0xa0, 0x77, 0x8f, 0xf9, 0xb3, 0xc4, 0xda, 0x61, 0x77, 0xa0, 0xdf, 0x12, 0xf6,
-	0xfb, 0x36, 0x15, 0xba, 0x3d, 0xd3, 0xaf, 0x9a, 0xc1, 0xf8, 0xff, 0xd2, 0x5c, 0x83, 0xee, 0xe2,
-	0x0a, 0x7b, 0x9a, 0x3f, 0x0d, 0x71, 0x03, 0x7a, 0x80, 0x21, 0xc5, 0x59, 0x17, 0x9b, 0x29, 0xb4,
-	0xf7, 0x7a, 0xa6, 0xae, 0x8a, 0x0b, 0xb9, 0x0c, 0x32, 0x38, 0x5b, 0x84, 0x22, 0xce, 0xbc, 0xbc,
-	0x42, 0xfa, 0xfe, 0x73, 0x03, 0x70, 0x3b, 0x18, 0x4d, 0xe4, 0x22, 0x5d, 0x7e, 0x05, 0x00, 0x00,
-	0xff, 0xff, 0xc2, 0x51, 0xfc, 0x9f, 0x72, 0x02, 0x00, 0x00,
+	// 664 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x94, 0x4f, 0x6f, 0x1a, 0x3b,
+	0x14, 0xc5, 0x27, 0x84, 0x10, 0xb8, 0x10, 0x12, 0x9c, 0xbc, 0xf7, 0xfc, 0x58, 0x45, 0xbc, 0x4d,
+	0x56, 0x3c, 0x95, 0xfe, 0x89, 0x94, 0x45, 0xa5, 0x26, 0xb4, 0x19, 0x22, 0x45, 0x49, 0x1d, 0x75,
+	0x1d, 0x99, 0x99, 0x0b, 0xb1, 0x34, 0x8c, 0x27, 0xc6, 0x13, 0x89, 0xee, 0xfb, 0xe1, 0xfa, 0xad,
+	0xaa, 0x31, 0x63, 0xcf, 0x30, 0x48, 0x6d, 0xd5, 0x1d, 0xe3, 0xfb, 0x3b, 0xd7, 0xc6, 0xf7, 0x1c,
+	0xc3, 0xd1, 0xec, 0x49, 0xa8, 0x07, 0x54, 0x2f, 0xa8, 0x86, 0x89, 0x92, 0x5a, 0x92, 0xc6, 0x34,
+	0x9d, 0xcd, 0x50, 0xf5, 0x0f, 0x12, 0xae, 0x05, 0xc6, 0x7a, 0xbd, 0xdc, 0x27, 0x89, 0xe2, 0x81,
+	0x16, 0x5a, 0xc8, 0xd8, 0xa2, 0x7d, 0xca, 0xa3, 0x08, 0xd5, 0x7c, 0x35, 0x89, 0xb5, 0x8c, 0x50,
+	0xf1, 0x38, 0xc0, 0xbc, 0x72, 0x88, 0x71, 0x20, 0xd3, 0x58, 0x3b, 0xf4, 0x30, 0x90, 0x71, 0x68,
+	0xd4, 0x76, 0x21, 0x51, 0x32, 0xc0, 0x30, 0x55, 0x56, 0xf2, 0xcf, 0x02, 0x43, 0x11, 0xf0, 0x0c,
+	0x61, 0xf8, 0x9c, 0xe2, 0xd2, 0xee, 0xdc, 0x93, 0xd3, 0x25, 0xaa, 0x17, 0x5e, 0x12, 0xff, 0x1d,
+	0x0a, 0x3e, 0x8f, 0xe5, 0x52, 0x8b, 0x80, 0x61, 0x22, 0x95, 0x3b, 0xa4, 0x58, 0x2c, 0xd2, 0x58,
+	0x7c, 0x2d, 0xb3, 0xdd, 0x80, 0x2b, 0x4c, 0x22, 0x6e, 0xbf, 0x61, 0x2e, 0x79, 0x64, 0x79, 0xa9,
+	0xe6, 0xbc, 0xc2, 0x77, 0xa6, 0x69, 0x1c, 0x46, 0xf9, 0xa9, 0x06, 0x67, 0x50, 0x9b, 0x8c, 0x49,
+	0x17, 0x6a, 0x22, 0xa4, 0x3b, 0xa7, 0x3b, 0x67, 0x2d, 0x56, 0x13, 0x21, 0x21, 0x50, 0xd7, 0xab,
+	0x04, 0x69, 0xcd, 0xac, 0x98, 0xdf, 0x83, 0xff, 0xa0, 0xfd, 0x39, 0x45, 0xb5, 0x7a, 0xd0, 0x4a,
+	0xc4, 0x73, 0x72, 0x02, 0x7b, 0xcf, 0xd9, 0x67, 0xae, 0x5a, 0x7f, 0x0c, 0xbe, 0x37, 0x80, 0x7c,
+	0xf2, 0x27, 0xec, 0x4b, 0x12, 0x72, 0x8d, 0x0c, 0x97, 0x32, 0x55, 0x01, 0x92, 0x37, 0x70, 0xb8,
+	0x5c, 0x69, 0x5c, 0x4c, 0x42, 0x8c, 0xb5, 0x98, 0x09, 0x54, 0xb4, 0x7b, 0xba, 0x73, 0xd6, 0x1e,
+	0xc1, 0x70, 0x3d, 0x8d, 0xe1, 0x64, 0xcc, 0xaa, 0x08, 0xf9, 0x1f, 0xf6, 0xf3, 0x19, 0x99, 0x4d,
+	0xda, 0xa3, 0x63, 0x4b, 0xdf, 0xaf, 0x97, 0xc7, 0x5c, 0x73, 0xdf, 0x63, 0x96, 0x22, 0xef, 0xa0,
+	0x99, 0x28, 0xf9, 0x22, 0x42, 0x54, 0xe6, 0xe8, 0xed, 0x11, 0x75, 0x8a, 0xd2, 0x74, 0x73, 0x99,
+	0x63, 0xc9, 0x2d, 0x1c, 0xe7, 0x93, 0x7e, 0x14, 0xc5, 0xa8, 0xe9, 0xae, 0x69, 0xd1, 0xb7, 0x2d,
+	0x3e, 0x6c, 0x99, 0xc1, 0xf7, 0x18, 0xd9, 0xb6, 0x08, 0x79, 0x05, 0x2d, 0x67, 0x0f, 0x5a, 0x37,
+	0x4d, 0x7a, 0xb6, 0xc9, 0x47, 0x5b, 0xf0, 0x3d, 0x56, 0x50, 0xe4, 0x2d, 0xb4, 0x9c, 0x81, 0xe8,
+	0x9e, 0x91, 0xfc, 0x65, 0x25, 0x57, 0xb6, 0x90, 0x9f, 0xbb, 0x20, 0xb3, 0x9d, 0x9c, 0xcd, 0x68,
+	0x63, 0x73, 0xa7, 0x7b, 0x5b, 0xc8, 0x24, 0x8e, 0x22, 0x37, 0x40, 0x0a, 0x23, 0x3e, 0xaa, 0xb5,
+	0x13, 0xe9, 0xbe, 0xd1, 0xfe, 0x6b, 0xb5, 0xb7, 0x55, 0xab, 0xfa, 0x1e, 0xeb, 0x6d, 0xf9, 0x97,
+	0x9c, 0x43, 0xbb, 0xe4, 0x5d, 0xda, 0xdc, 0x1c, 0xd2, 0x5d, 0x51, 0xf2, 0x3d, 0x56, 0x26, 0xc9,
+	0x35, 0xf4, 0x0a, 0x87, 0x3f, 0x2a, 0x63, 0x71, 0xda, 0xda, 0x9c, 0xd8, 0xb8, 0x12, 0x01, 0xdf,
+	0x63, 0x47, 0xd5, 0x58, 0x90, 0x0b, 0xe8, 0xac, 0x23, 0xb1, 0x3e, 0x18, 0x05, 0xd3, 0xe3, 0xc4,
+	0xb9, 0xaa, 0x14, 0x17, 0xdf, 0x63, 0x1b, 0x2c, 0x19, 0x42, 0xd3, 0x46, 0x87, 0xb6, 0x8d, 0xee,
+	0xc8, 0x5d, 0x39, 0x57, 0x78, 0x1f, 0xf1, 0x4c, 0xe3, 0x18, 0x32, 0x80, 0x7a, 0x16, 0x2d, 0xda,
+	0x31, 0x6c, 0xc7, 0xb2, 0xd7, 0x92, 0x47, 0xbe, 0xc7, 0x4c, 0x8d, 0xbc, 0x87, 0x4e, 0x39, 0x72,
+	0xf4, 0x60, 0xf3, 0x3f, 0xdd, 0x95, 0x6a, 0xf9, 0x34, 0x37, 0xf8, 0x4b, 0x80, 0xa6, 0xca, 0x43,
+	0x33, 0xfa, 0xb6, 0x0b, 0xf5, 0x2c, 0x4b, 0xd9, 0x35, 0x5f, 0xa3, 0x76, 0x61, 0x2a, 0x65, 0xa6,
+	0xef, 0xcc, 0xb9, 0x1d, 0xba, 0x81, 0x47, 0x6e, 0xa0, 0x7b, 0xa5, 0xb0, 0x1c, 0xc4, 0x9f, 0xf0,
+	0xbf, 0xee, 0x55, 0x09, 0xf5, 0x9f, 0xf7, 0xba, 0x80, 0xee, 0x18, 0x23, 0x2c, 0xf5, 0xfa, 0xfd,
+	0xff, 0x74, 0x0e, 0xdd, 0x07, 0xe4, 0x2a, 0x78, 0x72, 0x5a, 0x67, 0xb8, 0xd2, 0xf3, 0xd4, 0xef,
+	0xda, 0xc5, 0x4b, 0xf3, 0xda, 0x19, 0xe1, 0xf1, 0x25, 0xd7, 0xc1, 0xd3, 0x24, 0x5e, 0xa2, 0x2a,
+	0x6e, 0xb3, 0x02, 0x6e, 0x0b, 0xa7, 0x0d, 0xf3, 0x52, 0xbe, 0xfe, 0x11, 0x00, 0x00, 0xff, 0xff,
+	0x6a, 0x3c, 0x0b, 0x62, 0x4b, 0x06, 0x00, 0x00,
 }

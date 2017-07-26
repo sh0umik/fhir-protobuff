@@ -17,6 +17,7 @@ message CarePlan {
     repeated CareTeam careTeam = 10;
     string id = 11;
     Subject subject = 12;
+    Meta meta = 13;
 }
 
 message CareTeam {

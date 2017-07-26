@@ -19,6 +19,7 @@ message Procedure {
     Outcome outcome = 12;
     string id = 13;
     Subject subject = 14;
+    Meta meta = 15;
 }
 
 message Outcome {

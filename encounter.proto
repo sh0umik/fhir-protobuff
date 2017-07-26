@@ -26,6 +26,7 @@ message Encounter {
     string id = 19;
     PartOf partOf = 20;
     Subject subject = 21;
+    Meta meta = 22;
 }
 
 message PartOf {

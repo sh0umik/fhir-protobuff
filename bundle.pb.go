@@ -61,14 +61,93 @@ func (m *Bundle) GetEntry() []*Entry {
 }
 
 type Entry struct {
-	FullUrl  string `protobuf:"bytes,1,opt,name=fullUrl" json:"fullUrl,omitempty"`
-	Resource string `protobuf:"bytes,2,opt,name=resource" json:"resource,omitempty"`
+	FullUrl string `protobuf:"bytes,14,opt,name=fullUrl" json:"fullUrl,omitempty"`
+	// Types that are valid to be assigned to Resource:
+	//	*Entry_Patient
+	//	*Entry_Provider
+	//	*Entry_AllergyIntolerance
+	//	*Entry_Encounter
+	//	*Entry_Condition
+	//	*Entry_Precedure
+	//	*Entry_MedicationRequest
+	//	*Entry_Observation
+	//	*Entry_DiagnosticReport
+	//	*Entry_Immunication
+	//	*Entry_Careplan
+	//	*Entry_Goal
+	//	*Entry_Organization
+	Resource isEntry_Resource `protobuf_oneof:"resource"`
 }
 
 func (m *Entry) Reset()                    { *m = Entry{} }
 func (m *Entry) String() string            { return proto.CompactTextString(m) }
 func (*Entry) ProtoMessage()               {}
 func (*Entry) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{1} }
+
+type isEntry_Resource interface {
+	isEntry_Resource()
+}
+
+type Entry_Patient struct {
+	Patient *PatientData `protobuf:"bytes,1,opt,name=patient,oneof"`
+}
+type Entry_Provider struct {
+	Provider *PractitionerData `protobuf:"bytes,2,opt,name=provider,oneof"`
+}
+type Entry_AllergyIntolerance struct {
+	AllergyIntolerance *AllergyIntolerance `protobuf:"bytes,3,opt,name=allergy_intolerance,json=allergyIntolerance,oneof"`
+}
+type Entry_Encounter struct {
+	Encounter *Encounter `protobuf:"bytes,4,opt,name=encounter,oneof"`
+}
+type Entry_Condition struct {
+	Condition *ConditionData `protobuf:"bytes,5,opt,name=condition,oneof"`
+}
+type Entry_Precedure struct {
+	Precedure *Procedure `protobuf:"bytes,6,opt,name=precedure,oneof"`
+}
+type Entry_MedicationRequest struct {
+	MedicationRequest *MedicationRequest `protobuf:"bytes,7,opt,name=medication_request,json=medicationRequest,oneof"`
+}
+type Entry_Observation struct {
+	Observation *Observation `protobuf:"bytes,8,opt,name=observation,oneof"`
+}
+type Entry_DiagnosticReport struct {
+	DiagnosticReport *DiagnosticReport `protobuf:"bytes,9,opt,name=diagnostic_report,json=diagnosticReport,oneof"`
+}
+type Entry_Immunication struct {
+	Immunication *Immunization `protobuf:"bytes,10,opt,name=immunication,oneof"`
+}
+type Entry_Careplan struct {
+	Careplan *CarePlan `protobuf:"bytes,11,opt,name=careplan,oneof"`
+}
+type Entry_Goal struct {
+	Goal *Goal `protobuf:"bytes,12,opt,name=goal,oneof"`
+}
+type Entry_Organization struct {
+	Organization *OrganizationData `protobuf:"bytes,13,opt,name=organization,oneof"`
+}
+
+func (*Entry_Patient) isEntry_Resource()            {}
+func (*Entry_Provider) isEntry_Resource()           {}
+func (*Entry_AllergyIntolerance) isEntry_Resource() {}
+func (*Entry_Encounter) isEntry_Resource()          {}
+func (*Entry_Condition) isEntry_Resource()          {}
+func (*Entry_Precedure) isEntry_Resource()          {}
+func (*Entry_MedicationRequest) isEntry_Resource()  {}
+func (*Entry_Observation) isEntry_Resource()        {}
+func (*Entry_DiagnosticReport) isEntry_Resource()   {}
+func (*Entry_Immunication) isEntry_Resource()       {}
+func (*Entry_Careplan) isEntry_Resource()           {}
+func (*Entry_Goal) isEntry_Resource()               {}
+func (*Entry_Organization) isEntry_Resource()       {}
+
+func (m *Entry) GetResource() isEntry_Resource {
+	if m != nil {
+		return m.Resource
+	}
+	return nil
+}
 
 func (m *Entry) GetFullUrl() string {
 	if m != nil {
@@ -77,289 +156,194 @@ func (m *Entry) GetFullUrl() string {
 	return ""
 }
 
-func (m *Entry) GetResource() string {
-	if m != nil {
-		return m.Resource
-	}
-	return ""
-}
-
-type OneOfResource struct {
-	// Types that are valid to be assigned to Resource:
-	//	*OneOfResource_Patient
-	//	*OneOfResource_Provider
-	//	*OneOfResource_AllergyIntolerance
-	//	*OneOfResource_Encounter
-	//	*OneOfResource_Condition
-	//	*OneOfResource_Precedure
-	//	*OneOfResource_MedicationRequest
-	//	*OneOfResource_Observation
-	//	*OneOfResource_DiagnosticReport
-	//	*OneOfResource_Immunication
-	//	*OneOfResource_Careplan
-	//	*OneOfResource_Goal
-	//	*OneOfResource_Organization
-	Resource isOneOfResource_Resource `protobuf_oneof:"resource"`
-}
-
-func (m *OneOfResource) Reset()                    { *m = OneOfResource{} }
-func (m *OneOfResource) String() string            { return proto.CompactTextString(m) }
-func (*OneOfResource) ProtoMessage()               {}
-func (*OneOfResource) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{2} }
-
-type isOneOfResource_Resource interface {
-	isOneOfResource_Resource()
-}
-
-type OneOfResource_Patient struct {
-	Patient *PatientData `protobuf:"bytes,1,opt,name=patient,oneof"`
-}
-type OneOfResource_Provider struct {
-	Provider *PractitionerData `protobuf:"bytes,2,opt,name=provider,oneof"`
-}
-type OneOfResource_AllergyIntolerance struct {
-	AllergyIntolerance *AllergyIntolerance `protobuf:"bytes,3,opt,name=allergy_intolerance,json=allergyIntolerance,oneof"`
-}
-type OneOfResource_Encounter struct {
-	Encounter *Encounter `protobuf:"bytes,4,opt,name=encounter,oneof"`
-}
-type OneOfResource_Condition struct {
-	Condition *ConditionData `protobuf:"bytes,5,opt,name=condition,oneof"`
-}
-type OneOfResource_Precedure struct {
-	Precedure *Procedure `protobuf:"bytes,6,opt,name=precedure,oneof"`
-}
-type OneOfResource_MedicationRequest struct {
-	MedicationRequest *MedicationRequest `protobuf:"bytes,7,opt,name=medication_request,json=medicationRequest,oneof"`
-}
-type OneOfResource_Observation struct {
-	Observation *Observation `protobuf:"bytes,8,opt,name=observation,oneof"`
-}
-type OneOfResource_DiagnosticReport struct {
-	DiagnosticReport *DiagnosticReport `protobuf:"bytes,9,opt,name=diagnostic_report,json=diagnosticReport,oneof"`
-}
-type OneOfResource_Immunication struct {
-	Immunication *Immunization `protobuf:"bytes,10,opt,name=immunication,oneof"`
-}
-type OneOfResource_Careplan struct {
-	Careplan *CarePlan `protobuf:"bytes,11,opt,name=careplan,oneof"`
-}
-type OneOfResource_Goal struct {
-	Goal *Goal `protobuf:"bytes,12,opt,name=goal,oneof"`
-}
-type OneOfResource_Organization struct {
-	Organization *OrganizationData `protobuf:"bytes,13,opt,name=organization,oneof"`
-}
-
-func (*OneOfResource_Patient) isOneOfResource_Resource()            {}
-func (*OneOfResource_Provider) isOneOfResource_Resource()           {}
-func (*OneOfResource_AllergyIntolerance) isOneOfResource_Resource() {}
-func (*OneOfResource_Encounter) isOneOfResource_Resource()          {}
-func (*OneOfResource_Condition) isOneOfResource_Resource()          {}
-func (*OneOfResource_Precedure) isOneOfResource_Resource()          {}
-func (*OneOfResource_MedicationRequest) isOneOfResource_Resource()  {}
-func (*OneOfResource_Observation) isOneOfResource_Resource()        {}
-func (*OneOfResource_DiagnosticReport) isOneOfResource_Resource()   {}
-func (*OneOfResource_Immunication) isOneOfResource_Resource()       {}
-func (*OneOfResource_Careplan) isOneOfResource_Resource()           {}
-func (*OneOfResource_Goal) isOneOfResource_Resource()               {}
-func (*OneOfResource_Organization) isOneOfResource_Resource()       {}
-
-func (m *OneOfResource) GetResource() isOneOfResource_Resource {
-	if m != nil {
-		return m.Resource
-	}
-	return nil
-}
-
-func (m *OneOfResource) GetPatient() *PatientData {
-	if x, ok := m.GetResource().(*OneOfResource_Patient); ok {
+func (m *Entry) GetPatient() *PatientData {
+	if x, ok := m.GetResource().(*Entry_Patient); ok {
 		return x.Patient
 	}
 	return nil
 }
 
-func (m *OneOfResource) GetProvider() *PractitionerData {
-	if x, ok := m.GetResource().(*OneOfResource_Provider); ok {
+func (m *Entry) GetProvider() *PractitionerData {
+	if x, ok := m.GetResource().(*Entry_Provider); ok {
 		return x.Provider
 	}
 	return nil
 }
 
-func (m *OneOfResource) GetAllergyIntolerance() *AllergyIntolerance {
-	if x, ok := m.GetResource().(*OneOfResource_AllergyIntolerance); ok {
+func (m *Entry) GetAllergyIntolerance() *AllergyIntolerance {
+	if x, ok := m.GetResource().(*Entry_AllergyIntolerance); ok {
 		return x.AllergyIntolerance
 	}
 	return nil
 }
 
-func (m *OneOfResource) GetEncounter() *Encounter {
-	if x, ok := m.GetResource().(*OneOfResource_Encounter); ok {
+func (m *Entry) GetEncounter() *Encounter {
+	if x, ok := m.GetResource().(*Entry_Encounter); ok {
 		return x.Encounter
 	}
 	return nil
 }
 
-func (m *OneOfResource) GetCondition() *ConditionData {
-	if x, ok := m.GetResource().(*OneOfResource_Condition); ok {
+func (m *Entry) GetCondition() *ConditionData {
+	if x, ok := m.GetResource().(*Entry_Condition); ok {
 		return x.Condition
 	}
 	return nil
 }
 
-func (m *OneOfResource) GetPrecedure() *Procedure {
-	if x, ok := m.GetResource().(*OneOfResource_Precedure); ok {
+func (m *Entry) GetPrecedure() *Procedure {
+	if x, ok := m.GetResource().(*Entry_Precedure); ok {
 		return x.Precedure
 	}
 	return nil
 }
 
-func (m *OneOfResource) GetMedicationRequest() *MedicationRequest {
-	if x, ok := m.GetResource().(*OneOfResource_MedicationRequest); ok {
+func (m *Entry) GetMedicationRequest() *MedicationRequest {
+	if x, ok := m.GetResource().(*Entry_MedicationRequest); ok {
 		return x.MedicationRequest
 	}
 	return nil
 }
 
-func (m *OneOfResource) GetObservation() *Observation {
-	if x, ok := m.GetResource().(*OneOfResource_Observation); ok {
+func (m *Entry) GetObservation() *Observation {
+	if x, ok := m.GetResource().(*Entry_Observation); ok {
 		return x.Observation
 	}
 	return nil
 }
 
-func (m *OneOfResource) GetDiagnosticReport() *DiagnosticReport {
-	if x, ok := m.GetResource().(*OneOfResource_DiagnosticReport); ok {
+func (m *Entry) GetDiagnosticReport() *DiagnosticReport {
+	if x, ok := m.GetResource().(*Entry_DiagnosticReport); ok {
 		return x.DiagnosticReport
 	}
 	return nil
 }
 
-func (m *OneOfResource) GetImmunication() *Immunization {
-	if x, ok := m.GetResource().(*OneOfResource_Immunication); ok {
+func (m *Entry) GetImmunication() *Immunization {
+	if x, ok := m.GetResource().(*Entry_Immunication); ok {
 		return x.Immunication
 	}
 	return nil
 }
 
-func (m *OneOfResource) GetCareplan() *CarePlan {
-	if x, ok := m.GetResource().(*OneOfResource_Careplan); ok {
+func (m *Entry) GetCareplan() *CarePlan {
+	if x, ok := m.GetResource().(*Entry_Careplan); ok {
 		return x.Careplan
 	}
 	return nil
 }
 
-func (m *OneOfResource) GetGoal() *Goal {
-	if x, ok := m.GetResource().(*OneOfResource_Goal); ok {
+func (m *Entry) GetGoal() *Goal {
+	if x, ok := m.GetResource().(*Entry_Goal); ok {
 		return x.Goal
 	}
 	return nil
 }
 
-func (m *OneOfResource) GetOrganization() *OrganizationData {
-	if x, ok := m.GetResource().(*OneOfResource_Organization); ok {
+func (m *Entry) GetOrganization() *OrganizationData {
+	if x, ok := m.GetResource().(*Entry_Organization); ok {
 		return x.Organization
 	}
 	return nil
 }
 
 // XXX_OneofFuncs is for the internal use of the proto package.
-func (*OneOfResource) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
-	return _OneOfResource_OneofMarshaler, _OneOfResource_OneofUnmarshaler, _OneOfResource_OneofSizer, []interface{}{
-		(*OneOfResource_Patient)(nil),
-		(*OneOfResource_Provider)(nil),
-		(*OneOfResource_AllergyIntolerance)(nil),
-		(*OneOfResource_Encounter)(nil),
-		(*OneOfResource_Condition)(nil),
-		(*OneOfResource_Precedure)(nil),
-		(*OneOfResource_MedicationRequest)(nil),
-		(*OneOfResource_Observation)(nil),
-		(*OneOfResource_DiagnosticReport)(nil),
-		(*OneOfResource_Immunication)(nil),
-		(*OneOfResource_Careplan)(nil),
-		(*OneOfResource_Goal)(nil),
-		(*OneOfResource_Organization)(nil),
+func (*Entry) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
+	return _Entry_OneofMarshaler, _Entry_OneofUnmarshaler, _Entry_OneofSizer, []interface{}{
+		(*Entry_Patient)(nil),
+		(*Entry_Provider)(nil),
+		(*Entry_AllergyIntolerance)(nil),
+		(*Entry_Encounter)(nil),
+		(*Entry_Condition)(nil),
+		(*Entry_Precedure)(nil),
+		(*Entry_MedicationRequest)(nil),
+		(*Entry_Observation)(nil),
+		(*Entry_DiagnosticReport)(nil),
+		(*Entry_Immunication)(nil),
+		(*Entry_Careplan)(nil),
+		(*Entry_Goal)(nil),
+		(*Entry_Organization)(nil),
 	}
 }
 
-func _OneOfResource_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
-	m := msg.(*OneOfResource)
+func _Entry_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
+	m := msg.(*Entry)
 	// resource
 	switch x := m.Resource.(type) {
-	case *OneOfResource_Patient:
+	case *Entry_Patient:
 		b.EncodeVarint(1<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.Patient); err != nil {
 			return err
 		}
-	case *OneOfResource_Provider:
+	case *Entry_Provider:
 		b.EncodeVarint(2<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.Provider); err != nil {
 			return err
 		}
-	case *OneOfResource_AllergyIntolerance:
+	case *Entry_AllergyIntolerance:
 		b.EncodeVarint(3<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.AllergyIntolerance); err != nil {
 			return err
 		}
-	case *OneOfResource_Encounter:
+	case *Entry_Encounter:
 		b.EncodeVarint(4<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.Encounter); err != nil {
 			return err
 		}
-	case *OneOfResource_Condition:
+	case *Entry_Condition:
 		b.EncodeVarint(5<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.Condition); err != nil {
 			return err
 		}
-	case *OneOfResource_Precedure:
+	case *Entry_Precedure:
 		b.EncodeVarint(6<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.Precedure); err != nil {
 			return err
 		}
-	case *OneOfResource_MedicationRequest:
+	case *Entry_MedicationRequest:
 		b.EncodeVarint(7<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.MedicationRequest); err != nil {
 			return err
 		}
-	case *OneOfResource_Observation:
+	case *Entry_Observation:
 		b.EncodeVarint(8<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.Observation); err != nil {
 			return err
 		}
-	case *OneOfResource_DiagnosticReport:
+	case *Entry_DiagnosticReport:
 		b.EncodeVarint(9<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.DiagnosticReport); err != nil {
 			return err
 		}
-	case *OneOfResource_Immunication:
+	case *Entry_Immunication:
 		b.EncodeVarint(10<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.Immunication); err != nil {
 			return err
 		}
-	case *OneOfResource_Careplan:
+	case *Entry_Careplan:
 		b.EncodeVarint(11<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.Careplan); err != nil {
 			return err
 		}
-	case *OneOfResource_Goal:
+	case *Entry_Goal:
 		b.EncodeVarint(12<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.Goal); err != nil {
 			return err
 		}
-	case *OneOfResource_Organization:
+	case *Entry_Organization:
 		b.EncodeVarint(13<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.Organization); err != nil {
 			return err
 		}
 	case nil:
 	default:
-		return fmt.Errorf("OneOfResource.Resource has unexpected type %T", x)
+		return fmt.Errorf("Entry.Resource has unexpected type %T", x)
 	}
 	return nil
 }
 
-func _OneOfResource_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
-	m := msg.(*OneOfResource)
+func _Entry_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
+	m := msg.(*Entry)
 	switch tag {
 	case 1: // resource.patient
 		if wire != proto.WireBytes {
@@ -367,7 +351,7 @@ func _OneOfResource_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.
 		}
 		msg := new(PatientData)
 		err := b.DecodeMessage(msg)
-		m.Resource = &OneOfResource_Patient{msg}
+		m.Resource = &Entry_Patient{msg}
 		return true, err
 	case 2: // resource.provider
 		if wire != proto.WireBytes {
@@ -375,7 +359,7 @@ func _OneOfResource_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.
 		}
 		msg := new(PractitionerData)
 		err := b.DecodeMessage(msg)
-		m.Resource = &OneOfResource_Provider{msg}
+		m.Resource = &Entry_Provider{msg}
 		return true, err
 	case 3: // resource.allergy_intolerance
 		if wire != proto.WireBytes {
@@ -383,7 +367,7 @@ func _OneOfResource_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.
 		}
 		msg := new(AllergyIntolerance)
 		err := b.DecodeMessage(msg)
-		m.Resource = &OneOfResource_AllergyIntolerance{msg}
+		m.Resource = &Entry_AllergyIntolerance{msg}
 		return true, err
 	case 4: // resource.encounter
 		if wire != proto.WireBytes {
@@ -391,7 +375,7 @@ func _OneOfResource_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.
 		}
 		msg := new(Encounter)
 		err := b.DecodeMessage(msg)
-		m.Resource = &OneOfResource_Encounter{msg}
+		m.Resource = &Entry_Encounter{msg}
 		return true, err
 	case 5: // resource.condition
 		if wire != proto.WireBytes {
@@ -399,7 +383,7 @@ func _OneOfResource_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.
 		}
 		msg := new(ConditionData)
 		err := b.DecodeMessage(msg)
-		m.Resource = &OneOfResource_Condition{msg}
+		m.Resource = &Entry_Condition{msg}
 		return true, err
 	case 6: // resource.precedure
 		if wire != proto.WireBytes {
@@ -407,7 +391,7 @@ func _OneOfResource_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.
 		}
 		msg := new(Procedure)
 		err := b.DecodeMessage(msg)
-		m.Resource = &OneOfResource_Precedure{msg}
+		m.Resource = &Entry_Precedure{msg}
 		return true, err
 	case 7: // resource.medication_request
 		if wire != proto.WireBytes {
@@ -415,7 +399,7 @@ func _OneOfResource_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.
 		}
 		msg := new(MedicationRequest)
 		err := b.DecodeMessage(msg)
-		m.Resource = &OneOfResource_MedicationRequest{msg}
+		m.Resource = &Entry_MedicationRequest{msg}
 		return true, err
 	case 8: // resource.observation
 		if wire != proto.WireBytes {
@@ -423,7 +407,7 @@ func _OneOfResource_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.
 		}
 		msg := new(Observation)
 		err := b.DecodeMessage(msg)
-		m.Resource = &OneOfResource_Observation{msg}
+		m.Resource = &Entry_Observation{msg}
 		return true, err
 	case 9: // resource.diagnostic_report
 		if wire != proto.WireBytes {
@@ -431,7 +415,7 @@ func _OneOfResource_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.
 		}
 		msg := new(DiagnosticReport)
 		err := b.DecodeMessage(msg)
-		m.Resource = &OneOfResource_DiagnosticReport{msg}
+		m.Resource = &Entry_DiagnosticReport{msg}
 		return true, err
 	case 10: // resource.immunication
 		if wire != proto.WireBytes {
@@ -439,7 +423,7 @@ func _OneOfResource_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.
 		}
 		msg := new(Immunization)
 		err := b.DecodeMessage(msg)
-		m.Resource = &OneOfResource_Immunication{msg}
+		m.Resource = &Entry_Immunication{msg}
 		return true, err
 	case 11: // resource.careplan
 		if wire != proto.WireBytes {
@@ -447,7 +431,7 @@ func _OneOfResource_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.
 		}
 		msg := new(CarePlan)
 		err := b.DecodeMessage(msg)
-		m.Resource = &OneOfResource_Careplan{msg}
+		m.Resource = &Entry_Careplan{msg}
 		return true, err
 	case 12: // resource.goal
 		if wire != proto.WireBytes {
@@ -455,7 +439,7 @@ func _OneOfResource_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.
 		}
 		msg := new(Goal)
 		err := b.DecodeMessage(msg)
-		m.Resource = &OneOfResource_Goal{msg}
+		m.Resource = &Entry_Goal{msg}
 		return true, err
 	case 13: // resource.organization
 		if wire != proto.WireBytes {
@@ -463,78 +447,78 @@ func _OneOfResource_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.
 		}
 		msg := new(OrganizationData)
 		err := b.DecodeMessage(msg)
-		m.Resource = &OneOfResource_Organization{msg}
+		m.Resource = &Entry_Organization{msg}
 		return true, err
 	default:
 		return false, nil
 	}
 }
 
-func _OneOfResource_OneofSizer(msg proto.Message) (n int) {
-	m := msg.(*OneOfResource)
+func _Entry_OneofSizer(msg proto.Message) (n int) {
+	m := msg.(*Entry)
 	// resource
 	switch x := m.Resource.(type) {
-	case *OneOfResource_Patient:
+	case *Entry_Patient:
 		s := proto.Size(x.Patient)
 		n += proto.SizeVarint(1<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
-	case *OneOfResource_Provider:
+	case *Entry_Provider:
 		s := proto.Size(x.Provider)
 		n += proto.SizeVarint(2<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
-	case *OneOfResource_AllergyIntolerance:
+	case *Entry_AllergyIntolerance:
 		s := proto.Size(x.AllergyIntolerance)
 		n += proto.SizeVarint(3<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
-	case *OneOfResource_Encounter:
+	case *Entry_Encounter:
 		s := proto.Size(x.Encounter)
 		n += proto.SizeVarint(4<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
-	case *OneOfResource_Condition:
+	case *Entry_Condition:
 		s := proto.Size(x.Condition)
 		n += proto.SizeVarint(5<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
-	case *OneOfResource_Precedure:
+	case *Entry_Precedure:
 		s := proto.Size(x.Precedure)
 		n += proto.SizeVarint(6<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
-	case *OneOfResource_MedicationRequest:
+	case *Entry_MedicationRequest:
 		s := proto.Size(x.MedicationRequest)
 		n += proto.SizeVarint(7<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
-	case *OneOfResource_Observation:
+	case *Entry_Observation:
 		s := proto.Size(x.Observation)
 		n += proto.SizeVarint(8<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
-	case *OneOfResource_DiagnosticReport:
+	case *Entry_DiagnosticReport:
 		s := proto.Size(x.DiagnosticReport)
 		n += proto.SizeVarint(9<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
-	case *OneOfResource_Immunication:
+	case *Entry_Immunication:
 		s := proto.Size(x.Immunication)
 		n += proto.SizeVarint(10<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
-	case *OneOfResource_Careplan:
+	case *Entry_Careplan:
 		s := proto.Size(x.Careplan)
 		n += proto.SizeVarint(11<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
-	case *OneOfResource_Goal:
+	case *Entry_Goal:
 		s := proto.Size(x.Goal)
 		n += proto.SizeVarint(12<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
-	case *OneOfResource_Organization:
+	case *Entry_Organization:
 		s := proto.Size(x.Organization)
 		n += proto.SizeVarint(13<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
@@ -549,49 +533,47 @@ func _OneOfResource_OneofSizer(msg proto.Message) (n int) {
 func init() {
 	proto.RegisterType((*Bundle)(nil), "buffer.Bundle")
 	proto.RegisterType((*Entry)(nil), "buffer.Entry")
-	proto.RegisterType((*OneOfResource)(nil), "buffer.OneOfResource")
 }
 
 func init() { proto.RegisterFile("bundle.proto", fileDescriptor1) }
 
 var fileDescriptor1 = []byte{
-	// 602 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x64, 0x53, 0x5f, 0x6f, 0xd3, 0x3e,
-	0x14, 0x4d, 0xb7, 0xb6, 0x6b, 0x6f, 0xd2, 0xdf, 0xd6, 0xbb, 0xfd, 0xc0, 0xf4, 0xa9, 0x2a, 0x2f,
-	0x7b, 0x2a, 0xa2, 0x08, 0x90, 0x90, 0x40, 0x62, 0x0c, 0x2d, 0x43, 0x4c, 0x9d, 0x2c, 0x78, 0x9e,
-	0xdc, 0xc4, 0xad, 0xa2, 0xb9, 0x76, 0x70, 0x9d, 0x49, 0xe3, 0x43, 0xf0, 0x0d, 0xf8, 0xae, 0x28,
-	0x4e, 0x9c, 0x3f, 0xdd, 0x5b, 0xee, 0xbd, 0xe7, 0x1c, 0x3b, 0xd7, 0xe7, 0x40, 0xb0, 0xca, 0x64,
-	0x2c, 0xf8, 0x3c, 0xd5, 0xca, 0x28, 0xec, 0xaf, 0xb2, 0xf5, 0x9a, 0xeb, 0xc9, 0x28, 0x65, 0x26,
-	0xe1, 0xd2, 0x14, 0xed, 0x09, 0xa6, 0x9a, 0x45, 0x26, 0x31, 0x89, 0x92, 0x5c, 0x97, 0x3d, 0xc2,
-	0x84, 0xe0, 0x7a, 0xf3, 0x78, 0x2d, 0x8d, 0x12, 0x5c, 0x33, 0x19, 0x95, 0x22, 0x93, 0x63, 0x2e,
-	0x23, 0x95, 0x49, 0x53, 0x41, 0x8f, 0x23, 0x25, 0x63, 0xcb, 0x76, 0x8d, 0x54, 0xab, 0x88, 0xc7,
-	0x99, 0x76, 0x94, 0xe7, 0x5b, 0x1e, 0x27, 0x11, 0xcb, 0x21, 0x94, 0xff, 0xca, 0xf8, 0xce, 0x9d,
-	0x3c, 0x56, 0xab, 0x1d, 0xd7, 0x0f, 0xac, 0x41, 0x7e, 0x16, 0x27, 0x6c, 0x23, 0xd5, 0xce, 0x24,
-	0x11, 0xe5, 0xa9, 0xd2, 0xd5, 0x25, 0x93, 0xed, 0x36, 0x93, 0xc9, 0xef, 0x26, 0xf6, 0xbf, 0x88,
-	0x69, 0x9e, 0x0a, 0xe6, 0x6a, 0xd8, 0x28, 0x26, 0x1c, 0x5e, 0xe9, 0x0d, 0xdb, 0xc3, 0x07, 0x91,
-	0xda, 0x6e, 0x5d, 0x35, 0xfb, 0xdb, 0x81, 0xfe, 0x85, 0x5d, 0x0f, 0xce, 0x20, 0xd0, 0x7c, 0xa7,
-	0x32, 0x1d, 0xf1, 0x1f, 0x8f, 0x29, 0x27, 0x9d, 0x69, 0xe7, 0x7c, 0x48, 0x5b, 0x3d, 0x9c, 0x42,
-	0x57, 0x24, 0xf2, 0x9e, 0x1c, 0x4c, 0x0f, 0xcf, 0xfd, 0x45, 0x30, 0x2f, 0x76, 0x39, 0xff, 0x9e,
-	0xc8, 0x7b, 0x6a, 0x27, 0x78, 0x06, 0x3d, 0xa3, 0x0c, 0x13, 0xe4, 0x70, 0xda, 0x39, 0x3f, 0xa4,
-	0x45, 0x81, 0x08, 0x5d, 0x93, 0x6b, 0x76, 0xad, 0xa6, 0xfd, 0xc6, 0x97, 0xd0, 0xe3, 0xd2, 0xe8,
-	0x47, 0xd2, 0xb3, 0x62, 0x23, 0x27, 0xf6, 0x35, 0x6f, 0xd2, 0x62, 0x36, 0xfb, 0x08, 0x3d, 0x5b,
-	0x23, 0x81, 0xa3, 0x75, 0x26, 0xc4, 0x4f, 0x2d, 0xca, 0x8b, 0xb9, 0x12, 0x27, 0x30, 0x70, 0x77,
-	0x24, 0x07, 0x76, 0x54, 0xd5, 0xb3, 0x3f, 0x7d, 0x18, 0x2d, 0x25, 0x5f, 0xae, 0x69, 0xd9, 0xc1,
-	0x57, 0x70, 0x54, 0x3e, 0xbc, 0xd5, 0xf1, 0x17, 0xa7, 0xee, 0xdc, 0xdb, 0xa2, 0x7d, 0xc9, 0x0c,
-	0x0b, 0x3d, 0xea, 0x50, 0xf8, 0x0e, 0x06, 0xa9, 0x56, 0x0f, 0x49, 0xcc, 0xb5, 0x95, 0xf7, 0x17,
-	0xa4, 0x62, 0x34, 0x2c, 0x53, 0xd2, 0x2a, 0x2c, 0xde, 0xc0, 0x69, 0x69, 0x9f, 0xbb, 0xa4, 0xf6,
-	0x8f, 0x5d, 0x8b, 0xbf, 0x98, 0x38, 0x89, 0xcf, 0x4f, 0x1c, 0x16, 0x7a, 0x14, 0x9f, 0xfa, 0x0e,
-	0x5f, 0xc3, 0xb0, 0xf2, 0x9c, 0x5d, 0xa3, 0xbf, 0x18, 0xd7, 0x1b, 0x2b, 0x07, 0xa1, 0x47, 0x6b,
-	0x14, 0xbe, 0x85, 0x61, 0xe5, 0x4a, 0xd2, 0xb3, 0x94, 0xff, 0x1d, 0xe5, 0x8b, 0x1b, 0x94, 0xf7,
-	0xae, 0x91, 0xf9, 0x49, 0xa9, 0xe6, 0x85, 0x77, 0x49, 0xbf, 0x7d, 0xd2, 0xad, 0x33, 0x75, 0x4e,
-	0xa9, 0x50, 0xf8, 0x0d, 0xb0, 0x76, 0xf7, 0x9d, 0x2e, 0xec, 0x4d, 0x8e, 0x2c, 0xf7, 0x85, 0xe3,
-	0xde, 0xec, 0xfb, 0x3f, 0xf4, 0xe8, 0xf8, 0x49, 0x28, 0xf0, 0x3d, 0xf8, 0x8d, 0x40, 0x90, 0x41,
-	0xfb, 0x91, 0x96, 0xf5, 0x28, 0xf4, 0x68, 0x13, 0x89, 0x57, 0x30, 0xae, 0x63, 0x73, 0xa7, 0x6d,
-	0x6e, 0xc8, 0xb0, 0xfd, 0x62, 0x97, 0x7b, 0xb9, 0x0a, 0x3d, 0x7a, 0xb2, 0x9f, 0x35, 0xfc, 0x00,
-	0x41, 0x91, 0xb3, 0xe2, 0x62, 0x04, 0xac, 0xc6, 0x99, 0xd3, 0xb8, 0x6e, 0x64, 0x30, 0xf4, 0x68,
-	0x0b, 0x8b, 0x73, 0x18, 0xb8, 0x3c, 0x12, 0xdf, 0xf2, 0x4e, 0xaa, 0x95, 0x33, 0xcd, 0x6f, 0x05,
-	0xcb, 0x39, 0x15, 0x06, 0x67, 0xd0, 0xcd, 0xf3, 0x4a, 0x02, 0x8b, 0xad, 0x02, 0x75, 0xa5, 0x98,
-	0x08, 0x3d, 0x6a, 0x67, 0xf8, 0x09, 0x82, 0x66, 0x8e, 0xc9, 0xa8, 0xfd, 0x4f, 0xcb, 0xc6, 0xac,
-	0x7c, 0xcd, 0x16, 0xfe, 0x02, 0xea, 0x80, 0xac, 0xfa, 0x36, 0xf6, 0x6f, 0xfe, 0x05, 0x00, 0x00,
-	0xff, 0xff, 0xd9, 0x43, 0xaa, 0x71, 0x14, 0x05, 0x00, 0x00,
+	// 584 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x64, 0x53, 0x5f, 0x6f, 0xda, 0x3e,
+	0x14, 0x0d, 0x2d, 0x50, 0xb8, 0x09, 0x6d, 0x71, 0xfb, 0xfb, 0xcd, 0xe3, 0x09, 0xb1, 0x17, 0x9e,
+	0x98, 0xc6, 0xb4, 0x4d, 0xda, 0xc3, 0xa4, 0x75, 0x9d, 0x9a, 0x4e, 0xab, 0x8a, 0xac, 0xed, 0x19,
+	0x99, 0xc4, 0x20, 0xab, 0xc6, 0xce, 0x8c, 0x53, 0x89, 0x7d, 0x97, 0x49, 0xfb, 0xa8, 0x53, 0x9c,
+	0x38, 0x7f, 0xe0, 0x2d, 0xbe, 0xf7, 0x9c, 0x63, 0xe7, 0xde, 0x73, 0x20, 0x58, 0xa5, 0x32, 0x16,
+	0x6c, 0x96, 0x68, 0x65, 0x14, 0xea, 0xae, 0xd2, 0xf5, 0x9a, 0xe9, 0xd1, 0x20, 0xa1, 0x86, 0x33,
+	0x69, 0xf2, 0xf2, 0x08, 0x25, 0x9a, 0x46, 0x86, 0x1b, 0xae, 0x24, 0xd3, 0x45, 0x0d, 0x53, 0x21,
+	0x98, 0xde, 0xec, 0xef, 0xa5, 0x51, 0x82, 0x69, 0x2a, 0xa3, 0x42, 0x64, 0x74, 0xc1, 0x64, 0xa4,
+	0x52, 0x69, 0x4a, 0xe8, 0x45, 0xa4, 0x64, 0x6c, 0xd9, 0xae, 0x90, 0x68, 0x15, 0xb1, 0x38, 0xd5,
+	0x8e, 0xf2, 0x62, 0xcb, 0x62, 0x1e, 0xd1, 0x0c, 0x42, 0xd8, 0xaf, 0x94, 0xed, 0xdc, 0xcd, 0x43,
+	0xb5, 0xda, 0x31, 0xfd, 0x4c, 0x6b, 0xe4, 0xff, 0x63, 0x4e, 0x37, 0x52, 0xed, 0x0c, 0x8f, 0x08,
+	0x4b, 0x94, 0x2e, 0x1f, 0xc9, 0xb7, 0xdb, 0x54, 0xf2, 0xdf, 0x75, 0xec, 0x79, 0x44, 0x35, 0x4b,
+	0x04, 0x75, 0x67, 0xd8, 0x28, 0x2a, 0x1c, 0x5e, 0xe9, 0x0d, 0x3d, 0xc0, 0x07, 0x91, 0xda, 0x6e,
+	0xdd, 0x69, 0xf2, 0xa7, 0x05, 0xdd, 0x1b, 0x3b, 0x1e, 0x34, 0x81, 0x40, 0xb3, 0x9d, 0x4a, 0x75,
+	0xc4, 0x7e, 0xec, 0x13, 0x86, 0x5b, 0xe3, 0xd6, 0xb4, 0x4f, 0x1a, 0x35, 0x34, 0x86, 0xb6, 0xe0,
+	0xf2, 0x09, 0x9f, 0x8c, 0x4f, 0xa7, 0xfe, 0x3c, 0x98, 0xe5, 0xb3, 0x9c, 0x7d, 0xe7, 0xf2, 0x89,
+	0xd8, 0x0e, 0xba, 0x86, 0x8e, 0x51, 0x86, 0x0a, 0x7c, 0x3a, 0x6e, 0x4d, 0x4f, 0x49, 0x7e, 0x40,
+	0x08, 0xda, 0x26, 0xd3, 0x6c, 0x5b, 0x4d, 0xfb, 0x8d, 0x5e, 0x41, 0x87, 0x49, 0xa3, 0xf7, 0xb8,
+	0x63, 0xc5, 0x06, 0x4e, 0xec, 0x6b, 0x56, 0x24, 0x79, 0x6f, 0xf2, 0xb7, 0x0b, 0x1d, 0x5b, 0x40,
+	0x18, 0xce, 0xd6, 0xa9, 0x10, 0x3f, 0xb5, 0xc0, 0xe7, 0x56, 0xc5, 0x1d, 0xd1, 0x6b, 0x38, 0x2b,
+	0x76, 0x69, 0xdf, 0xec, 0xcf, 0xaf, 0x9c, 0xd4, 0x22, 0x2f, 0xdf, 0x52, 0x43, 0x43, 0x8f, 0x38,
+	0x14, 0x7a, 0x0f, 0xbd, 0x44, 0xab, 0x67, 0x1e, 0x33, 0x8d, 0x4f, 0x2c, 0x03, 0x97, 0x8c, 0x9a,
+	0x0b, 0x0a, 0x5a, 0x89, 0x45, 0x0f, 0x70, 0x55, 0x38, 0x62, 0xc9, 0x2b, 0x4b, 0xd8, 0x3f, 0xf5,
+	0xe7, 0x23, 0x27, 0xf1, 0xf9, 0xc8, 0x34, 0xa1, 0x47, 0xd0, 0xb1, 0x95, 0xd0, 0x1b, 0xe8, 0x97,
+	0x36, 0xb2, 0x93, 0xf1, 0xe7, 0xc3, 0x6a, 0x08, 0x45, 0x23, 0xf4, 0x48, 0x85, 0x42, 0xef, 0xa0,
+	0x5f, 0x1a, 0x0d, 0x77, 0x2c, 0xe5, 0x3f, 0x47, 0xf9, 0xe2, 0x1a, 0xc5, 0xbb, 0x2b, 0x64, 0x76,
+	0x53, 0xa2, 0x59, 0x6e, 0x47, 0xdc, 0x6d, 0xde, 0xb4, 0x70, 0x3e, 0xcd, 0x28, 0x25, 0x0a, 0x7d,
+	0x03, 0x54, 0x19, 0x76, 0xa9, 0x73, 0xc7, 0xe2, 0x33, 0xcb, 0x7d, 0xe9, 0xb8, 0x0f, 0x87, 0x96,
+	0x0e, 0x3d, 0x32, 0x3c, 0xf2, 0x39, 0xfa, 0x00, 0x7e, 0xcd, 0xe3, 0xb8, 0xd7, 0x5c, 0xd2, 0x63,
+	0xd5, 0x0a, 0x3d, 0x52, 0x47, 0xa2, 0x3b, 0x18, 0x56, 0x49, 0x58, 0x6a, 0x1b, 0x05, 0xdc, 0x6f,
+	0x6e, 0xec, 0xf6, 0x20, 0x2a, 0xa1, 0x47, 0x2e, 0x0f, 0xe3, 0x83, 0x3e, 0x42, 0x90, 0x47, 0x27,
+	0x7f, 0x18, 0x06, 0xab, 0x71, 0xed, 0x34, 0xee, 0x6b, 0xb1, 0x0a, 0x3d, 0xd2, 0xc0, 0xa2, 0x19,
+	0xf4, 0x5c, 0xc4, 0xb0, 0x6f, 0x79, 0x97, 0xe5, 0xc8, 0xa9, 0x66, 0x0b, 0x41, 0x33, 0x4e, 0x89,
+	0x41, 0x13, 0x68, 0x67, 0x11, 0xc4, 0x81, 0xc5, 0x96, 0x19, 0xb9, 0x53, 0x54, 0x84, 0x1e, 0xb1,
+	0x3d, 0xf4, 0x09, 0x82, 0x7a, 0x34, 0xf1, 0xa0, 0xf9, 0x4f, 0x8f, 0xb5, 0x5e, 0xb1, 0xcd, 0x06,
+	0xfe, 0x06, 0xa0, 0xe7, 0x72, 0xb9, 0xea, 0xda, 0x24, 0xbf, 0xfd, 0x17, 0x00, 0x00, 0xff, 0xff,
+	0xd3, 0x12, 0x07, 0x43, 0xe7, 0x04, 0x00, 0x00,
 }
