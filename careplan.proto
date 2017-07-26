@@ -4,7 +4,7 @@ package buffer;
 
 import "common.proto";
 
-message Careplan {
+message CarePlan {
     string status = 1;
     repeated Addresses addresses = 2;
     string resourceType = 3;

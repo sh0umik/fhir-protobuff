@@ -4,8 +4,18 @@ package buffer;
 
 import "patient.proto";
 import "practitioner.proto";
+import "allergyIntolerance.proto";
+import "encounter.proto";
+import "condition.proto";
+import "procedure.proto";
+//import "medication.proto";
+import "medicationRequest.proto";
 import "observation.proto";
-import "medication_request.proto";
+import "diagnosticReport.proto";
+import "immunization.proto";
+import "careplan.proto";
+import "goal.proto";
+import "organization.proto";
 
 import "common.proto";
 
@@ -26,7 +36,17 @@ message OneOfResource {
     oneof resource {
         PatientData patient = 1;
         PractitionerData provider = 2;
-        Observation observation = 3;
-        MedicationRequest medication_request = 4;
+        AllergyIntolerance allergy_intolerance = 3;
+        Encounter encounter = 4;
+        ConditionData condition = 5;
+        Procedure precedure = 6;
+        //Medication medication = 7;
+        MedicationRequest medication_request = 7;
+        Observation observation = 8;
+        DiagnosticReport diagnostic_report = 9;
+        Immunization immunication = 10;
+        CarePlan careplan = 11;
+        Goal goal = 12;
+        OrganizationData organization = 13;
     }
 }

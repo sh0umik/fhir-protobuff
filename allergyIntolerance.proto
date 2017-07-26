@@ -4,7 +4,7 @@ package buffer;
 
 import "common.proto";
 
-message Allergy {
+message AllergyIntolerance {
     string status = 1;
     string category = 2;
     Code code = 3;
