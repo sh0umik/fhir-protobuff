@@ -52,7 +52,7 @@ message FHIRUpdateResource {
         Observation observation = 8;
         DiagnosticReport diagnostic_report = 9;
         Immunization immunication = 10;
-        CarePlan careplan = 11;
+        CarePlan care_plan = 11;
         Goal goal = 12;
         OrganizationData organization = 13;
     }

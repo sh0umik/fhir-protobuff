@@ -2,21 +2,6 @@ syntax = "proto3";
 
 package buffer;
 
-import "patient.proto";
-import "practitioner.proto";
-import "allergyIntolerance.proto";
-import "encounter.proto";
-import "condition.proto";
-import "procedure.proto";
-//import "medication.proto";
-import "medicationRequest.proto";
-import "observation.proto";
-import "diagnosticReport.proto";
-import "immunization.proto";
-import "careplan.proto";
-import "goal.proto";
-import "organization.proto";
-
 import "common.proto";
 
 message Bundle {
@@ -28,21 +13,6 @@ message Bundle {
 }
 
 message Entry {
-    string fullUrl = 14;
-    oneof resource {
-        PatientData patient = 1;
-        PractitionerData provider = 2;
-        AllergyIntolerance allergy_intolerance = 3;
-        Encounter encounter = 4;
-        ConditionData condition = 5;
-        Procedure procedure = 6;
-        //Medication medication = 7;
-        MedicationRequest medication_request = 7;
-        Observation observation = 8;
-        DiagnosticReport diagnostic_report = 9;
-        Immunization immunication = 10;
-        CarePlan careplan = 11;
-        Goal goal = 12;
-        OrganizationData organization = 13;
-    }
+    string fullUrl = 1;
+    bytes resource = 2;
 }
