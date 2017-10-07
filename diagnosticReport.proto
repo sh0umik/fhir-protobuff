@@ -33,6 +33,7 @@ message DiagnosticReport {
 
 message Result {
     string reference = 1;
+    string display = 2;
 }
 
 message PresentedForm {

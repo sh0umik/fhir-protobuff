@@ -10,7 +10,7 @@ message AllergyIntolerance {
     Code code = 3;
     Patient patient = 4;
     string criticality = 5;
-    Reporter reporter = 6;
+    Asserter asserter = 6;
     string resourceType = 7;
     Text text = 8;
     repeated Reaction reaction = 9;
@@ -49,8 +49,4 @@ message ExposureRoute {
 
 message Substance {
     repeated Coding coding = 1;
-}
-
-message Reporter {
-    string reference = 1;
 }

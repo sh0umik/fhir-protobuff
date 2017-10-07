@@ -13,13 +13,10 @@ message Observation {
     Meta meta = 6;
     string effectiveDateTime = 7;
     string id = 8;
-    OEncounter encounter = 9;
+    Context context = 9;
     Subject subject = 10;
-
-}
-
-message OEncounter {
-    string reference = 1;
+    string issued = 11;
+    ValueQuantity valueQuantity = 12;
 }
 
 message Component {

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package buffer;
+
+import "common.proto";
+
+message Medication {
+    Code code = 1;
+    string resourceType = 2;
+    Meta meta = 3;
+    string id = 4;
+}

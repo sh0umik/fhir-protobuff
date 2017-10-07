@@ -8,7 +8,7 @@ import "allergyIntolerance.proto";
 import "encounter.proto";
 import "condition.proto";
 import "procedure.proto";
-//import "medication.proto";
+import "medication.proto";
 import "medicationRequest.proto";
 import "observation.proto";
 import "diagnosticReport.proto";
@@ -38,8 +38,13 @@ message QueryString {
     string query = 1;
 }
 
+message ReferenceIDs{
+    repeated ID ids = 1;
+}
+
 message FHIRUpdateResource {
-    ID sytemIdentifier = 14;
+    ReferenceIDs reference_ids = 16;
+    ID sytemIdentifier = 15;
     oneof resource {
         PatientData patient = 1;
         PractitionerData provider = 2;
@@ -47,14 +52,14 @@ message FHIRUpdateResource {
         Encounter encounter = 4;
         ConditionData condition = 5;
         Procedure procedure = 6;
-        //Medication medication = 7;
-        MedicationRequest medication_request = 7;
-        Observation observation = 8;
-        DiagnosticReport diagnostic_report = 9;
-        Immunization immunication = 10;
-        CarePlan care_plan = 11;
-        Goal goal = 12;
-        OrganizationData organization = 13;
+        Medication medication = 7;
+        MedicationRequest medication_request = 8;
+        Observation observation = 9;
+        DiagnosticReport diagnostic_report = 10;
+        Immunization immunication = 11;
+        CarePlan care_plan = 12;
+        Goal goal = 13;
+        OrganizationData organization = 14;
     }
 }
 
