@@ -19,7 +19,7 @@ Feel free to fork and contribute
 |Encounter| Init | 80% |
 |Condition| Init | 80% |
 |Procedure| Init | 80% |
-|Medication|
+|Medication| Init | 50% |
 |MedicationRequest| Init |80% |
 |Observation| Init | 80% |
 |DiagnosticReport| Init | 80% |
